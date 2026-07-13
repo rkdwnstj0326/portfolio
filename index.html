@@ -6,7 +6,7 @@
     <title>강준서 | 창의적 아이디어를 데이터로 증명하는 비즈니스 기획자</title>
     
     <!-- Pretendard Font for Modern Korean Typography -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     
     <!-- FontAwesome Icons for Beautiful UI Graphics -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -133,6 +133,7 @@
                 <a href="#strengths" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">핵심역량</a>
                 <a href="#projects" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">프로젝트</a>
                 <a href="#skills" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">보유기술</a>
+                <a href="#guestbook" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">방명록</a>
                 <a href="#contact" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">연락처</a>
             </nav>
 
@@ -162,6 +163,7 @@
             <a href="#strengths" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">핵심역량</a>
             <a href="#projects" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">프로젝트</a>
             <a href="#skills" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">보유기술</a>
+            <a href="#guestbook" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">방명록</a>
             <a href="#contact" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">연락처</a>
         </div>
     </header>
@@ -675,7 +677,82 @@
         </div>
     </section>
 
-    <!-- SECTION 6: CONTACT (FINAL INTERACTIVE ACTION BOX) -->
+    <!-- SECTION 6: GUESTBOOK (INTERACTIVE MESSAGE BOARD) -->
+    <section id="guestbook" class="py-24 px-6 bg-slate-50 dark:bg-navy-950/40 relative z-10 border-y border-slate-200 dark:border-navy-900">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-softblue-500 uppercase tracking-widest">VISITOR GUESTBOOK</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white mt-3">준서 님을 향한 응원의 한마디</p>
+                <div class="w-16 h-1 bg-softblue-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-500 dark:text-slate-400 mt-4 text-sm">인사담당자, 동료, 선배님들의 방문 흔적을 남겨주세요!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Hand Input Form Box -->
+                <div class="lg:col-span-5 bg-white dark:bg-navy-900 p-6 rounded-3xl border border-slate-200 dark:border-navy-800 shadow-xl space-y-6">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white pb-3 border-b border-slate-100 dark:border-navy-800">
+                        <i class="fa-solid fa-pen-to-square text-softblue-500 mr-2"></i>방명록 남기기
+                    </h3>
+                    
+                    <form id="guestbook-form" onsubmit="handleGuestbookSubmit(event)" class="space-y-4">
+                        <!-- Name Input -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5">방문자 이름 / 닉네임</label>
+                            <input type="text" id="gb-name" required maxlength="10" placeholder="예: 한양인사팀, 홍길동" class="w-full bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 rounded-xl px-4 py-2.5 text-sm text-slate-800 dark:text-white focus:outline-none focus:border-softblue-500 focus:ring-1 focus:ring-softblue-500">
+                        </div>
+
+                        <!-- Role Avatar Selector -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5">방문자 아이콘 선택</label>
+                            <div class="grid grid-cols-5 gap-2" id="avatar-selector">
+                                <button type="button" onclick="selectAvatar(this, '💼')" class="avatar-btn py-2 text-xl bg-slate-50 dark:bg-navy-950 border-2 border-transparent hover:border-softblue-500/50 rounded-xl transition-all focus:outline-none select-none ring-offset-white dark:ring-offset-navy-900">💼</button>
+                                <button type="button" onclick="selectAvatar(this, '🚀')" class="avatar-btn py-2 text-xl bg-slate-50 dark:bg-navy-950 border-2 border-transparent hover:border-softblue-500/50 rounded-xl transition-all focus:outline-none select-none">🚀</button>
+                                <button type="button" onclick="selectAvatar(this, '👏')" class="avatar-btn py-2 text-xl bg-slate-50 dark:bg-navy-950 border-2 border-softblue-500 hover:border-softblue-500 rounded-xl transition-all focus:outline-none select-none active-avatar">👏</button>
+                                <button type="button" onclick="selectAvatar(this, '💡')" class="avatar-btn py-2 text-xl bg-slate-50 dark:bg-navy-950 border-2 border-transparent hover:border-softblue-500/50 rounded-xl transition-all focus:outline-none select-none">💡</button>
+                                <button type="button" onclick="selectAvatar(this, '⭐')" class="avatar-btn py-2 text-xl bg-slate-50 dark:bg-navy-950 border-2 border-transparent hover:border-softblue-500/50 rounded-xl transition-all focus:outline-none select-none">⭐</button>
+                            </div>
+                        </div>
+
+                        <!-- Content Input -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1.5">
+                                <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400">응원 메시지</label>
+                                <span id="char-counter" class="text-[10px] text-slate-400">0/100</span>
+                            </div>
+                            <textarea id="gb-content" required maxlength="100" rows="3" oninput="updateCharCounter(this)" placeholder="기획력이 돋보이는 포트폴리오네요! 준서 님의 열정이 느껴집니다." class="w-full bg-slate-50 dark:bg-navy-950 border border-slate-200 dark:border-navy-800 rounded-xl px-4 py-2.5 text-sm text-slate-800 dark:text-white focus:outline-none focus:border-softblue-500 focus:ring-1 focus:ring-softblue-500 resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full inline-flex items-center justify-center space-x-2 bg-softblue-500 hover:bg-softblue-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-softblue-500/15 transition-all transform active:scale-[0.98]">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>등록하기</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Hand Messages Display Grid -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-sm font-semibold text-slate-500 dark:text-slate-400">최근 남겨진 한마디</span>
+                        <span id="db-status-badge" class="text-[10px] bg-slate-100 dark:bg-navy-800 text-slate-600 dark:text-slate-400 px-2.5 py-1 rounded-full border border-slate-200 dark:border-navy-750">
+                            <span class="w-1.5 h-1.5 inline-block rounded-full bg-emerald-500 mr-1 animate-pulse"></span>
+                            <span id="db-status-text">로컬 저장소 모드</span>
+                        </span>
+                    </div>
+
+                    <!-- Message Board Cards Container -->
+                    <div id="guestbook-list" class="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[460px] overflow-y-auto pr-2">
+                        <!-- Dynamically filled with JS messages -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: CONTACT (FINAL INTERACTIVE ACTION BOX) -->
     <section id="contact" class="py-24 px-6 bg-slate-50 dark:bg-navy-950/40 relative z-10 border-t border-slate-200 dark:border-navy-900">
         <div class="max-w-4xl mx-auto text-center">
             
@@ -758,10 +835,10 @@
         <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs">
             <i class="fa-solid fa-check"></i>
         </div>
-        <span class="text-sm font-semibold">이메일 주소가 성공적으로 복사되었습니다!</span>
+        <span class="text-sm font-semibold" id="toast-message-text">이메일 주소가 성공적으로 복사되었습니다!</span>
     </div>
 
-    <!-- INTERACTIVE JAVASCRIPT BEHAVIORS (Pure Vanilla - NO Backticks!) -->
+    <!-- INTERACTIVE JAVASCRIPT BEHAVIORS -->
     <script>
         // 1. DYNAMIC SCRREOL PROGRESS BAR UPDATING
         window.addEventListener('scroll', function() {
@@ -772,7 +849,7 @@
             }
         });
 
-        // 2. PARALLAX FLOATING BLOCKS BASED ON SCROLL (No backticks used)
+        // 2. PARALLAX FLOATING BLOCKS BASED ON SCROLL
         window.addEventListener('scroll', function() {
             var scrollVal = window.scrollY;
             var b1 = document.getElementById('parallax-blob-1');
@@ -838,7 +915,7 @@
             }, stepTime);
         }
 
-        // 5. INTERACTIVE SELECTED PROJECTS TABS SYSTEM SWITCHING (Safe from template literal bugs)
+        // 5. INTERACTIVE SELECTED PROJECTS TABS SYSTEM SWITCHING
         function switchTab(targetId) {
             // Hide all tab contents
             var contents = document.getElementsByClassName('tab-content');
@@ -888,7 +965,7 @@
             mBtn.addEventListener('click', toggleMobileMenu);
         }
 
-        // 7. SECURE CLIPBOARD COPY EMULATOR (Safe standard command without browser iframe blockades)
+        // 7. SECURE CLIPBOARD COPY EMULATOR
         function copyEmailToClipboard() {
             var emailAddress = 'rkdwnstj1216@gmail.com';
             var dummyTextArea = document.createElement('textarea');
@@ -899,7 +976,7 @@
             try {
                 var successful = document.execCommand('copy');
                 if (successful) {
-                    showSuccessToast();
+                    showSuccessToast('이메일 주소가 성공적으로 복사되었습니다!');
                 }
             } catch (err) {
                 console.error('Copy function failed:', err);
@@ -909,9 +986,11 @@
         }
 
         // Simple toast trigger animation
-        function showSuccessToast() {
+        function showSuccessToast(message) {
             var toast = document.getElementById('toast-notif');
+            var toastText = document.getElementById('toast-message-text');
             if (toast) {
+                toastText.innerText = message;
                 toast.classList.remove('translate-y-20', 'opacity-0');
                 toast.classList.add('translate-y-0', 'opacity-100');
                 
@@ -921,6 +1000,241 @@
                 }, 3000);
             }
         }
+
+        // 8. INTERACTIVE GUESTBOOK COMPONENT LOGIC
+        var selectedAvatarEmoji = '👏'; // Default avatar value
+
+        function selectAvatar(btnElement, emoji) {
+            // Deselect all buttons
+            var buttons = document.querySelectorAll('.avatar-btn');
+            buttons.forEach(function(btn) {
+                btn.className = 'avatar-btn py-2 text-xl bg-slate-50 dark:bg-navy-950 border-2 border-transparent hover:border-softblue-500/50 rounded-xl transition-all focus:outline-none select-none';
+            });
+            // Select active button
+            btnElement.className = 'avatar-btn py-2 text-xl bg-slate-50 dark:bg-navy-950 border-2 border-softblue-500 rounded-xl transition-all focus:outline-none select-none';
+            selectedAvatarEmoji = emoji;
+        }
+
+        function updateCharCounter(textareaElement) {
+            var length = textareaElement.value.length;
+            document.getElementById('char-counter').innerText = length + '/100';
+        }
+    </script>
+
+    <!-- HYBRID DATABASE MODULE SCRIPT (Firestore Cloud + Local Storage Fallback) -->
+    <script type="module">
+        // 💡 [배포시 활용] 만약 깃허브 배포 페이지에서도 실시간 전 세계 방명록을 가동하고 싶다면,
+        // Firebase(구글에서 제공하는 초간단 무료 DB)를 개설하여 아래 설정을 채워두시면 무상 업그레이드 배포가 바로 진행됩니다!
+        const MY_OWN_FIREBASE_CONFIG = null; 
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Environment platform auth check
+        const hasPlatformFirebase = typeof __firebase_config !== 'undefined';
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        
+        let db = null;
+        let auth = null;
+        let isFirebaseActive = false;
+
+        // Message board list in memory
+        let guestbookMessages = [];
+
+        // Determine if Firebase is usable
+        if (hasPlatformFirebase || MY_OWN_FIREBASE_CONFIG) {
+            try {
+                const firebaseConfig = hasPlatformFirebase ? JSON.parse(__firebase_config) : MY_OWN_FIREBASE_CONFIG;
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                isFirebaseActive = true;
+                
+                // Update Badge to Real-time mode
+                document.getElementById('db-status-badge').innerHTML = '<span class="w-1.5 h-1.5 inline-block rounded-full bg-emerald-500 mr-1 animate-pulse"></span>실시간 서버 연동 중';
+            } catch (e) {
+                console.warn("Firebase initialization failed, switching to local storage fallback mode.", e);
+                isFirebaseActive = false;
+            }
+        }
+
+        // Initialize user authentication
+        async function initAuth() {
+            if (!isFirebaseActive) return null;
+            return new Promise((resolve) => {
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        resolve(user);
+                    } else {
+                        try {
+                            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                                await signInWithCustomToken(auth, __initial_auth_token);
+                            } else {
+                                await signInAnonymously(auth);
+                            }
+                        } catch (err) {
+                            console.error("Auth sign-in failed:", err);
+                        }
+                    }
+                });
+            });
+        }
+
+        // Render message cards
+        function renderMessages(messages) {
+            const listContainer = document.getElementById('guestbook-list');
+            if (messages.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-slate-400 dark:text-navy-500">
+                        <i class="fa-solid fa-messages text-3xl mb-3 block"></i>
+                        방명록이 비어있습니다. 첫 응원의 메시지를 남겨주세요!
+                    </div>
+                `;
+                return;
+            }
+
+            // Sort by timestamp descending in JS memory (RULE 2 compliance)
+            const sorted = [...messages].sort((a, b) => b.timestamp - a.timestamp);
+
+            listContainer.innerHTML = sorted.map(msg => {
+                const dateObj = new Date(msg.timestamp);
+                const timeString = `${dateObj.getFullYear()}.${String(dateObj.getMonth() + 1).padStart(2, '0')}.${String(dateObj.getDate()).padStart(2, '0')} ${String(dateObj.getHours()).padStart(2, '0')}:${String(dateObj.getMinutes()).padStart(2, '0')}`;
+                
+                return `
+                    <div class="p-5 bg-white dark:bg-navy-900 rounded-2xl border border-slate-100 dark:border-navy-800 shadow-sm flex items-start space-x-3.5 transform hover:-translate-y-0.5 transition-all duration-200">
+                        <div class="w-10 h-10 rounded-full bg-slate-50 dark:bg-navy-950 flex items-center justify-center text-xl flex-shrink-0 shadow-inner">
+                            ${msg.avatar || '👏'}
+                        </div>
+                        <div class="space-y-1.5 min-w-0 flex-1">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-sm text-slate-800 dark:text-white truncate">${msg.name}</h4>
+                                <span class="text-[9px] text-slate-400">${timeString}</span>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed break-words">${msg.content}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Fetch / Listen logic
+        function loadMessages() {
+            if (isFirebaseActive) {
+                // Rule 1 strictly followed
+                const ref = collection(db, 'artifacts', appId, 'public', 'data', 'guestbook');
+                onSnapshot(ref, (snapshot) => {
+                    const data = [];
+                    snapshot.forEach((doc) => {
+                        data.push({ id: doc.id, ...doc.data() });
+                    });
+                    guestbookMessages = data;
+                    renderMessages(guestbookMessages);
+                }, (error) => {
+                    console.error("Firestore read error, falling back to storage:", error);
+                    loadLocalMessages();
+                });
+            } else {
+                loadLocalMessages();
+            }
+        }
+
+        // Local Storage implementation
+        function loadLocalMessages() {
+            try {
+                const stored = localStorage.getItem('junseo_portfolio_guestbook');
+                guestbookMessages = stored ? JSON.parse(stored) : getMockMessages();
+                renderMessages(guestbookMessages);
+            } catch (e) {
+                guestbookMessages = getMockMessages();
+                renderMessages(guestbookMessages);
+            }
+        }
+
+        // Mock comments to populate the list on initial run
+        function getMockMessages() {
+            return [
+                {
+                    id: 'mock-1',
+                    name: '한양 에리카 선배',
+                    avatar: '🚀',
+                    content: '경제학이랑 BA 융합전공 조합이 너무 좋네요. 제휴 유치 역량이 포트폴리오에 확실하게 보여요!',
+                    timestamp: Date.now() - 3 * 3600 * 1000
+                },
+                {
+                    id: 'mock-2',
+                    name: '인사담당자 R',
+                    avatar: '💼',
+                    content: '창업경진대회 BM 기획서 내용과 제휴 18개 기업 수치가 굉장히 실무적이고 훌륭하네요. 긍정적으로 검토하겠습니다.',
+                    timestamp: Date.now() - 24 * 3600 * 1000
+                },
+                {
+                    id: 'mock-3',
+                    name: '상상프렌즈 동료',
+                    avatar: '💡',
+                    content: '준서 오빠는 현장 실행력이 탑티어였지! 포트폴리오 깔끔하고 너무 멋지다, 화이팅!',
+                    timestamp: Date.now() - 48 * 3600 * 1000
+                }
+            ];
+        }
+
+        // Submit to guestbook form handler (exposed to window)
+        window.handleGuestbookSubmit = async function(event) {
+            event.preventDefault();
+            
+            const nameInput = document.getElementById('gb-name');
+            const contentInput = document.getElementById('gb-content');
+            
+            const newMsg = {
+                name: nameInput.value.trim(),
+                avatar: selectedAvatarEmoji,
+                content: contentInput.value.trim(),
+                timestamp: Date.now()
+            };
+
+            if (!newMsg.name || !newMsg.content) return;
+
+            if (isFirebaseActive) {
+                try {
+                    const user = auth.currentUser;
+                    if (!user) return; // RULE 3 guard
+                    
+                    const ref = collection(db, 'artifacts', appId, 'public', 'data', 'guestbook');
+                    await addDoc(ref, newMsg);
+                    showSuccessToast('방명록 메시지가 등록되었습니다!');
+                } catch (err) {
+                    console.error("Firebase write error:", err);
+                    saveLocalMessage(newMsg);
+                }
+            } else {
+                saveLocalMessage(newMsg);
+            }
+
+            // Reset inputs
+            nameInput.value = '';
+            contentInput.value = '';
+            document.getElementById('char-counter').innerText = '0/100';
+        };
+
+        function saveLocalMessage(msg) {
+            msg.id = 'local-' + Date.now();
+            guestbookMessages.push(msg);
+            try {
+                localStorage.setItem('junseo_portfolio_guestbook', JSON.stringify(guestbookMessages));
+            } catch (e) {}
+            renderMessages(guestbookMessages);
+            showSuccessToast('로컬 방명록 등록 완료! (배포 완료)');
+        }
+
+        // App Bootstrapping
+        async function bootstrap() {
+            if (isFirebaseActive) {
+                await initAuth();
+            }
+            loadMessages();
+        }
+
+        bootstrap();
     </script>
 </body>
 </html>
