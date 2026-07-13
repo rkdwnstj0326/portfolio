@@ -1,937 +1,926 @@
-!DOCTYPE html
-html lang=ko class=scroll-smooth dark
-head
-    meta charset=UTF-8
-    meta name=viewport content=width=device-width, initial-scale=1.0
-    title강준서  창의적 아이디어를 데이터로 증명하는 비즈니스 기획자title
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강준서 | 창의적 아이디어를 데이터로 증명하는 비즈니스 기획자</title>
     
-    !-- Google Fonts & Pretendard Font --
-    link rel=stylesheet as=style crossorigin href=httpscdn.tailwindcss.comcontentpretendarddistwebstaticpretendard.css 
-    link rel=stylesheet href=httpscdn.jsdelivr.netghorioncactuspretendard@v1.3.9distwebstaticpretendard.css 
-    !-- FontAwesome Icons for modern visuals --
-    link rel=stylesheet href=httpscdnjs.cloudflare.comajaxlibsfont-awesome6.4.0cssall.min.css
+    <!-- Pretendard Font for Modern Korean Typography -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     
-    !-- Tailwind CSS with custom theme config --
-    script src=httpscdn.tailwindcss.comtailwind@3.4.15script
+    <!-- FontAwesome Icons for Beautiful UI Graphics -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    script
+    <!-- Tailwind CSS with custom configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
         tailwind.config = {
-            darkMode 'class',
-            theme {
-                extend {
-                    fontFamily {
-                        sans ['Pretendard', 'sans-serif'],
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
                     },
-                    colors {
-                        navy {
-                            950 '#060B13',
-                            900 '#0A192F',
-                            800 '#112240',
-                            700 '#1D3557',
-                            400 '#8892B0',
-                            300 '#A8B2D1',
-                            100 '#CCD6F6',
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#dbe5f0',
+                            200: '#bdcfe2',
+                            300: '#90b0ce',
+                            400: '#5d8cb4',
+                            500: '#3e6f98',
+                            600: '#30587c',
+                            700: '#284764',
+                            800: '#1d2a3a',
+                            900: '#0A192F', // Perfect Deep Navy
+                            950: '#030a16',
                         },
-                         Soft Azure Blue for soft eye comfort instead of fatiguing neon mint
-                        softBlue {
-                            50 '#F0F9FF',
-                            100 '#E0F2FE',
-                            200 '#BAE6FD',
-                            300 '#7DD3FC',
-                            400 '#38BDF8',
-                            500 '#0EA5E9',
-                            600 '#0284C7',
-                            700 '#0369A1',
+                        softblue: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9', // Elegant Soft Blue
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
                         }
-                    },
-                    boxShadow {
-                        'glow' '0 0 15px rgba(56, 189, 248, 0.25)',
-                        'glow-lg' '0 0 25px rgba(56, 189, 248, 0.45)',
                     }
                 }
             }
         }
-    script
-
-    style
+    </script>
+    
+    <!-- CUSTOM STYLES (Animations, Scroll Progress, Themes) -->
+    <style>
         body {
-            font-family 'Pretendard', sans-serif;
-            transition background-color 0.4s ease, color 0.4s ease;
+            font-family: 'Pretendard', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-         Custom scrollbar matching professional layout 
-        -webkit-scrollbar {
-            width 8px;
-        }
-        -webkit-scrollbar-track {
-            background var(--scroll-track-color, #0A192F);
-        }
-        -webkit-scrollbar-thumb {
-            background var(--scroll-thumb-color, #112240);
-            border-radius 4px;
-        }
-        -webkit-scrollbar-thumbhover {
-            background #38BDF8;
-        }
-        .soft-glow-hoverhover {
-            box-shadow 0 0 15px rgba(56, 189, 248, 0.4);
-            border-color #38BDF8;
-        }
-    style
-head
-body class=min-h-screen relative overflow-x-hidden bg-slate-50 text-slate-800 darkbg-navy-900 darktext-navy-100
-
-    !-- Top Scroll Progress Bar --
-    div id=scroll-progress-container class=fixed top-0 left-0 w-full h-1 z-[100] bg-slate-20050 darkbg-navy-95050
-        div id=scroll-progress-bar class=h-full bg-softBlue-500 darkbg-softBlue-400 w-0 transition-all duration-75div
-    div
-
-    !-- Floating Parallax Blobs for Spatial Depth (공간감) --
-    div class=absolute inset-0 overflow-hidden pointer-events-none z-0
-        !-- Dot Matrix Overlay --
-        div class=absolute inset-0 opacity-5 darkopacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size32px_32px]div
         
-        !-- Deep Parallax Blob 1 --
-        div id=parallax-blob-1 class=absolute top-[15%] left-[-10%] w-[500px] h-[500px] rounded-full bg-softBlue-30010 darkbg-softBlue-5005 filter blur-[100px] transition-transform duration-300 ease-outdiv
-        !-- Deep Parallax Blob 2 --
-        div id=parallax-blob-2 class=absolute top-[45%] right-[-5%] w-[600px] h-[600px] rounded-full bg-indigo-30010 darkbg-indigo-5005 filter blur-[120px] transition-transform duration-200 ease-outdiv
-        !-- Deep Parallax Blob 3 --
-        div id=parallax-blob-3 class=absolute top-[75%] left-[5%] w-[450px] h-[450px] rounded-full bg-softBlue-20010 darkbg-softBlue-6005 filter blur-[90px] transition-transform duration-500 ease-outdiv
-    div
+        /* Modern Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A192F;
+        }
+        .light ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+        
+        /* Smooth Entrance Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* Subtle Pulsing Aura Effect */
+        .glow-aura {
+            box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.4);
+        }
+        .dark .glow-aura {
+            box-shadow: 0 0 30px -5px rgba(14, 165, 233, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-navy-900 text-slate-100 dark:bg-navy-900 dark:text-slate-100 min-h-screen relative overflow-x-hidden antialiased selection:bg-softblue-500 selection:text-white">
 
-    !-- Navigation Bar --
-    header class=fixed top-1 left-0 w-full z-50 transition-all duration-300
-        div class=max-w-7xl mx-auto px-6 mdpx-12 py-4 flex items-center justify-between bg-white80 darkbg-navy-95080 backdrop-blur-md border-b border-slate-20060 darkborder-navy-80050 rounded-2xl shadow-sm
-            !-- Logo --
-            a href=#home class=flex items-center space-x-2 group
-                span class=text-xl mdtext-2xl font-black text-softBlue-600 darktext-softBlue-400 tracking-wider font-mono&lt;JUNSEO &gt;span
-            a
+    <!-- SPATIAL PARALLAX BACKGROUND BLOBS (Interactive Depth) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- Floating Blur Blob 1 -->
+        <div id="parallax-blob-1" class="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-softblue-500/10 dark:bg-softblue-500/5 blur-[100px] transition-transform duration-500 ease-out"></div>
+        <!-- Floating Blur Blob 2 -->
+        <div id="parallax-blob-2" class="absolute top-[40%] right-[-5%] w-[600px] h-[600px] rounded-full bg-indigo-500/10 dark:bg-indigo-500/5 blur-[120px] transition-transform duration-500 ease-out"></div>
+        <!-- Floating Blur Blob 3 -->
+        <div id="parallax-blob-3" class="absolute bottom-[15%] left-[10%] w-[450px] h-[450px] rounded-full bg-sky-500/15 dark:bg-sky-500/5 blur-[90px] transition-transform duration-500 ease-out"></div>
+    </div>
 
-            !-- Desktop Menu --
-            nav class=hidden mdflex items-center space-x-8 text-sm font-semibold tracking-wide text-slate-600 darktext-navy-100
-                a href=#home class=hovertext-softBlue-600 darkhovertext-softBlue-400 transition-colors duration-200Homea
-                a href=#highlights class=hovertext-softBlue-600 darkhovertext-softBlue-400 transition-colors duration-200Highlightsa
-                a href=#strengths class=hovertext-softBlue-600 darkhovertext-softBlue-400 transition-colors duration-200Core Pointsa
-                a href=#projects class=hovertext-softBlue-600 darkhovertext-softBlue-400 transition-colors duration-200Projectsa
-                a href=#skills class=hovertext-softBlue-600 darkhovertext-softBlue-400 transition-colors duration-200Skillsa
-                a href=#contact class=hovertext-softBlue-600 darkhovertext-softBlue-400 transition-colors duration-200Contacta
-            nav
+    <!-- REAL-TIME SCROLL PROGRESS BAR -->
+    <div class="fixed top-0 left-0 w-full h-1 z-50 bg-navy-800/50 dark:bg-navy-950/50">
+        <div id="scroll-progress" class="h-full bg-gradient-to-r from-softblue-500 to-indigo-500 w-0 transition-all duration-100"></div>
+    </div>
 
-            !-- Actions Theme Switcher & Resume Download --
-            div class=flex items-center space-x-4
-                !-- Theme Mode Toggle Button --
-                button id=theme-toggle-btn class=p-2.5 rounded-lg border border-slate-200 darkborder-navy-800 text-slate-600 darktext-navy-100 hoverbg-slate-100 darkhoverbg-navy-800 transition-all aria-label=Toggle darklight mode
-                    i id=theme-toggle-icon class=fa-solid fa-sun text-mdi
-                button
-
-                button onclick=downloadResume() class=hidden smblock border border-softBlue-500 darkborder-softBlue-400 text-softBlue-600 darktext-softBlue-400 px-4 py-2 rounded-lg text-xs mdtext-sm font-semibold transition-all duration-300 hoverbg-softBlue-50010 hovershadow-glow font-mono
-                    i class=fa-solid fa-file-pdf mr-1.5iResume.pdf
-                button
-
-                !-- Mobile Menu Button --
-                button id=mobile-menu-btn class=mdhidden text-slate-700 darktext-navy-100 hovertext-softBlue-500 text-2xl focusoutline-none transition-colors
-                    i class=fa-solid fa-bars-staggeredi
-                button
-            div
-        div
-
-        !-- Mobile Drawer Menu --
-        div id=mobile-drawer class=hidden fixed top-[73px] left-0 w-full h-[calc(100vh-73px)] bg-white95 darkbg-navy-95095 backdrop-blur-lg flex-col items-center justify-center space-y-8 text-xl font-semibold border-t border-slate-200 darkborder-navy-80080 transition-all duration-300
-            a href=#home onclick=toggleMobileMenu() class=text-slate-800 darktext-navy-100 hovertext-softBlue-500 transition-colorsHomea
-            a href=#highlights onclick=toggleMobileMenu() class=text-slate-800 darktext-navy-100 hovertext-softBlue-500 transition-colorsHighlightsa
-            a href=#strengths onclick=toggleMobileMenu() class=text-slate-800 darktext-navy-100 hovertext-softBlue-500 transition-colorsCore Pointsa
-            a href=#projects onclick=toggleMobileMenu() class=text-slate-800 darktext-navy-100 hovertext-softBlue-500 transition-colorsProjectsa
-            a href=#skills onclick=toggleMobileMenu() class=text-slate-800 darktext-navy-100 hovertext-softBlue-500 transition-colorsSkillsa
-            a href=#contact onclick=toggleMobileMenu() class=text-slate-800 darktext-navy-100 hovertext-softBlue-500 transition-colorsContacta
-            button onclick=downloadResume(); toggleMobileMenu(); class=border border-softBlue-500 text-softBlue-600 darktext-softBlue-400 px-6 py-3 rounded-lg text-lg font-semibold hoverbg-softBlue-50010 transition-all font-mono
-                i class=fa-solid fa-file-pdf mr-2iResume.pdf
-            button
-        div
-    header
-
-    !-- Toast Notification for Copy action --
-    div id=toast-message class=fixed bottom-8 right-8 z-50 bg-white darkbg-navy-800 border border-slate-200 darkborder-softBlue-500 text-slate-800 darktext-softBlue-400 font-semibold px-6 py-3 rounded-xl shadow-lg darkshadow-glow opacity-0 translate-y-4 pointer-events-none transition-all duration-300 flex items-center gap-3
-        i class=fa-solid fa-circle-check text-softBlue-500i
-        span id=toast-text이메일 주소가 복사되었습니다!span
-    div
-
-    !-- [Section 1] Intro - Hero Section --
-    section id=home class=min-h-screen flex items-center justify-center pt-28 pb-16 px-6 mdpx-12 relative overflow-hidden z-10
-        div class=max-w-6xl w-full mx-auto grid grid-cols-1 lggrid-cols-12 gap-12 items-center
+    <!-- STICKY NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-white/80 dark:bg-navy-900/80 backdrop-blur-md border-b border-slate-200 dark:border-navy-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-2 text-navy-800 dark:text-white font-extrabold text-xl tracking-wider hover:scale-105 transition-transform">
+                <span class="text-softblue-500"><i class="fa-solid fa-chart-line mr-1.5"></i>JUNSEO</span>
+            </a>
             
-            !-- Intro Text (712 layout) --
-            div class=lgcol-span-7 flex flex-col justify-center space-y-6 text-left
-                !-- Tagline with subtle badge styling --
-                div class=inline-flex items-center space-x-2 bg-slate-100 darkbg-navy-800 border border-slate-200 darkborder-navy-700 text-softBlue-600 darktext-softBlue-400 text-xs mdtext-sm font-semibold px-3 py-1.5 rounded-full w-fit
-                    span class=w-2 h-2 rounded-full bg-softBlue-500 animate-pulsespan
-                    span경제학 × 비즈니스 애널리틱스span
-                div
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
+                <a href="#about" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">소개</a>
+                <a href="#strengths" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">핵심역량</a>
+                <a href="#projects" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">프로젝트</a>
+                <a href="#skills" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">보유기술</a>
+                <a href="#contact" class="hover:text-softblue-500 dark:hover:text-softblue-400 transition-colors">연락처</a>
+            </nav>
+
+            <!-- Utility Controls (Theme Toggle + Action Button) -->
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-navy-800 text-slate-700 dark:text-slate-300 hover:scale-110 transition-transform focus:outline-none" aria-label="테마 전환">
+                    <i id="theme-icon" class="fa-solid fa-sun text-amber-500"></i>
+                </button>
                 
-                !-- Main Catchphrase --
-                h1 class=text-4xl mdtext-5xl lgtext-6xl font-black text-slate-900 darktext-navy-100 leading-tight
-                    창의적 아이디어를br
-                    span class=text-softBlue-600 darktext-softBlue-400 drop-shadow-[0_0_15px_rgba(56,189,248,0.2)]데이터로 증명span하는br
+                <!-- CTA Download Button -->
+                <a href="#contact" class="hidden sm:inline-flex items-center space-x-2 bg-softblue-500 hover:bg-softblue-600 text-white font-bold py-2 px-4 rounded-xl text-xs tracking-wide shadow-lg shadow-softblue-500/20 transition-all">
+                    <span>이력서 받기</span>
+                    <i class="fa-solid fa-download"></i>
+                </a>
+                
+                <!-- Mobile Navigation Menu Toggle Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 dark:text-slate-300 hover:text-softblue-500 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- MOBILE NAVIGATION DRAWER -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 dark:border-navy-800 bg-white/95 dark:bg-navy-900/95 backdrop-blur-md absolute top-16 left-0 w-full p-6 space-y-4 shadow-xl">
+            <a href="#about" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">소개</a>
+            <a href="#strengths" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">핵심역량</a>
+            <a href="#projects" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">프로젝트</a>
+            <a href="#skills" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">보유기술</a>
+            <a href="#contact" class="block text-slate-800 dark:text-slate-200 font-medium hover:text-softblue-500" onclick="toggleMobileMenu()">연락처</a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO (FIRST IMPRESSION STRIKE) -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-24 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Info Pane -->
+            <div class="lg:col-span-7 space-y-8 text-left animate-fadeInUp">
+                <div class="inline-flex items-center space-x-2 bg-softblue-500/10 text-softblue-600 dark:text-softblue-400 py-1.5 px-4 rounded-full text-xs font-semibold uppercase tracking-wider border border-softblue-500/20">
+                    <span class="w-2 h-2 rounded-full bg-softblue-500 animate-ping"></span>
+                    <span>경제학 × 비즈니스 애널리틱스</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-800 dark:text-white leading-tight">
+                    창의적 아이디어를<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-softblue-500 to-indigo-500">데이터로 증명</span>하는<br>
                     비즈니스 기획자
-                h1
-
-                !-- Core Intro Sentence (3-second pitch) --
-                p class=text-base mdtext-lg text-slate-600 darktext-navy-300 leading-relaxed max-w-2xl
-                    안녕하세요, strong class=text-slate-900 darktext-white font-bold강준서strong입니다. 시장의 숨겨진 비즈니스 가능성을 창의적 아이디어로 발굴하고, 데이터 기반의 정량적 분석으로 타당성을 입증해 냅니다. 제안과 데이터가 결합되었을 때 탄생하는 성과를 믿습니다.
-                p
-
-                !-- Sub-bullets target-oriented --
-                div class=grid grid-cols-1 smgrid-cols-2 gap-3 text-sm text-slate-500 darktext-navy-400 py-3 border-t border-b border-slate-200 darkborder-navy-80080
-                    div class=flex items-center gap-2
-                        i class=fa-solid fa-chevron-right text-softBlue-500 text-xsi
-                        span데이터 마인드를 탑재한 strong기획 실무자strongspan
-                    div
-                    div class=flex items-center gap-2
-                        i class=fa-solid fa-chevron-right text-softBlue-500 text-xsi
-                        span협상 및 대형 제휴 성공 경험 보유span
-                    div
-                    div class=flex items-center gap-2
-                        i class=fa-solid fa-chevron-right text-softBlue-500 text-xsi
-                        span비즈니스 모델(BM) 설계 및 검증 역량span
-                    div
-                    div class=flex items-center gap-2
-                        i class=fa-solid fa-chevron-right text-softBlue-500 text-xsi
-                        span다양한 이해관계자를 조율하는 소통span
-                    div
-                div
-
-                !-- Call to Action Buttons --
-                div class=flex flex-col smflex-row items-stretch smitems-center gap-4 pt-4
-                    a href=#highlights class=bg-softBlue-600 hoverbg-softBlue-700 darkbg-softBlue-500 darkhoverbg-softBlue-600 text-white font-bold px-8 py-4 rounded-xl text-center transition-all duration-300 transform hover-translate-y-0.5 hovershadow-glow-lg flex items-center justify-center gap-2
-                        포트폴리오 살펴보기 i class=fa-solid fa-arrow-down-longi
-                    a
-                    button onclick=downloadResume() class=border border-slate-300 darkborder-navy-700 text-slate-700 darktext-navy-100 hovertext-softBlue-600 darkhovertext-softBlue-400 hoverborder-softBlue-400 darkhoverborder-softBlue-400 px-8 py-4 rounded-xl font-bold text-center transition-all duration-300 flex items-center justify-center gap-2 bg-slate-10050 darkbg-navy-80050 hoverbg-slate-100 darkhoverbg-navy-800
-                        i class=fa-solid fa-file-pdfi 이력서 다운로드
-                    button
-                div
-            div
-
-            !-- Profile Interactive Preview (512 layout) --
-            div class=lgcol-span-5 flex justify-center items-center
-                div class=relative w-72 h-72 mdw-80 mdh-80 group
-                    !-- Glowing Backing Ring --
-                    div class=absolute inset-0 bg-gradient-to-tr from-softBlue-500 to-indigo-500 darkto-navy-700 rounded-full blur-2xl opacity-20 darkopacity-40 group-hoveropacity-50 transition-opacity duration-500div
-                    
-                    !-- Decorative Circle Tech-lines --
-                    div class=absolute inset-x-[-15px] inset-y-[-15px] border border-dashed border-softBlue-50020 rounded-full animate-[spin_40s_linear_infinite]div
-                    div class=absolute inset-x-[-30px] inset-y-[-30px] border border-softBlue-50010 rounded-full animate-[spin_20s_linear_infinite] pointer-events-nonediv
-
-                    !-- Inner Card Base --
-                    div class=absolute inset-0 bg-white darkbg-navy-800 border-2 border-slate-100 darkborder-navy-700 rounded-3xl overflow-hidden flex flex-col justify-center items-center p-6 shadow-xl darkshadow-2xl transition-all duration-300 group-hoverborder-softBlue-400
-                        !-- Profile Mock Visual representation --
-                        div class=w-24 h-24 rounded-full bg-gradient-to-b from-softBlue-50010 to-softBlue-50030 border-2 border-softBlue-400 flex items-center justify-center mb-4 shadow-glow
-                            span class=text-3xl font-black text-slate-800 darktext-whiteJSspan
-                        div
-                        h2 class=text-xl font-bold text-slate-900 darktext-navy-100강준서 (Kang Junseo)h2
-                        p class=text-xs text-softBlue-600 darktext-softBlue-400 font-mono mt-1Hanyang Univ. ERICAp
-                        
-                        !-- Mini tags inside card --
-                        div class=flex flex-wrap gap-1.5 justify-center mt-4
-                            span class=bg-slate-100 darkbg-navy-95080 text-[10px] text-slate-600 darktext-navy-300 border border-slate-200 darkborder-navy-800 px-2.5 py-1 rounded경제학 전공span
-                            span class=bg-slate-100 darkbg-navy-95080 text-[10px] text-slate-600 darktext-navy-300 border border-slate-200 darkborder-navy-800 px-2.5 py-1 rounded비즈니스 애널리틱스span
-                            span class=bg-slate-100 darkbg-navy-95080 text-[10px] text-slate-600 darktext-navy-300 border border-slate-200 darkborder-navy-800 px-2.5 py-1 rounded기획자span
-                        div
-
-                        !-- Date of Birth Visualizer --
-                        div class=mt-4 text-[11px] text-slate-500 darktext-navy-400 font-mono tracking-wider
-                            i class=fa-solid fa-cake-candles text-softBlue-500 mr-1i 2002. 12. 16
-                        div
-                    div
-                div
-            div
-        div
-    section
-
-    !-- [Section 2] Highlights - Dashboard Style Overview --
-    section id=highlights class=py-20 mdpy-28 px-6 mdpx-12 bg-white darkbg-navy-950 border-t border-b border-slate-100 darkborder-navy-900 relative z-10
-        div class=max-w-6xl mx-auto
-            !-- Section Title --
-            div class=text-center mdtext-left mb-16
-                span class=text-softBlue-600 darktext-softBlue-400 font-mono text-xs mdtext-sm tracking-widest font-semibold uppercase block mb-3 AT A GLANCEspan
-                h2 class=text-3xl mdtext-4xl font-black text-slate-900 darktext-navy-100핵심 성과 요약 (Highlights)h2
-                p class=text-slate-500 darktext-navy-400 mt-3 text-sm mdtext-base max-w-2xl준서 님이 만들어낸 주요 활동 지표입니다. 단순 경험을 넘어 숫자로 성과를 기획하고 증명해 냈습니다.p
-            div
-
-            !-- Dashboard Grid --
-            div class=grid grid-cols-1 mdgrid-cols-3 gap-8
-                !-- Highlight Card 1 18개사 제휴 --
-                div class=bg-slate-50 darkbg-navy-800 border-2 border-slate-20060 darkborder-navy-70060 p-8 rounded-2xl relative overflow-hidden group transition-all duration-300 hoverborder-softBlue-400 darkhoverborder-softBlue-400 hover-translate-y-1 hovershadow-glow
-                    !-- Icon backing decoration --
-                    div class=absolute -right-4 -bottom-4 text-8xl text-slate-200 darktext-navy-90040 group-hovertext-softBlue-50010 transition-colors duration-300
-                        i class=fa-solid fa-handshakei
-                    div
-                    div class=w-12 h-12 bg-softBlue-50010 border border-softBlue-40020 rounded-xl flex items-center justify-center text-softBlue-600 darktext-softBlue-400 text-xl mb-6 shadow-glow
-                        i class=fa-solid fa-handshakei
-                    div
-                    !-- Counter State --
-                    div class=flex items-baseline space-x-1 mb-2
-                        span class=text-4xl lgtext-5xl font-black text-slate-900 darktext-navy-100 font-mono18span
-                        span class=text-lg font-bold text-softBlue-600 darktext-softBlue-400개사span
-                    div
-                    h3 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-2대규모 제휴 및 협업 체결h3
-                    p class=text-sm text-slate-500 darktext-navy-400 leading-relaxed
-                        새내기배움터 프로모션 팀장으로서 대기업부터 스타트업까지 총 18개 기업의 대규모 제휴 및 학교 앞 8개 로컬 상권과의 협업 프로모션을 성사시켰습니다.
-                    p
-                div
-
-                !-- Highlight Card 2 창업경진대회 최우수 --
-                div class=bg-slate-50 darkbg-navy-800 border-2 border-slate-20060 darkborder-navy-70060 p-8 rounded-2xl relative overflow-hidden group transition-all duration-300 hoverborder-softBlue-400 darkhoverborder-softBlue-400 hover-translate-y-1 hovershadow-glow
-                    div class=absolute -right-4 -bottom-4 text-8xl text-slate-200 darktext-navy-90040 group-hovertext-softBlue-50010 transition-colors duration-300
-                        i class=fa-solid fa-trophyi
-                    div
-                    div class=w-12 h-12 bg-softBlue-50010 border border-softBlue-40020 rounded-xl flex items-center justify-center text-softBlue-600 darktext-softBlue-400 text-xl mb-6 shadow-glow
-                        i class=fa-solid fa-trophyi
-                    div
-                    div class=flex items-baseline space-x-1 mb-2
-                        span class=text-4xl lgtext-5xl font-black text-slate-900 darktext-navy-100최우수span
-                        span class=text-lg font-bold text-softBlue-600 darktext-softBlue-400상span
-                    div
-                    h3 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-2창업경진대회 수상h3
-                    p class=text-sm text-slate-500 darktext-navy-400 leading-relaxed
-                        단순 아이디어에 그치지 않고, 정밀한 경제수요 분석 및 BM 기획력을 입증하여 비즈니스 모델 설계 능력 공인 및 수치화된 기획력 성과를 달성했습니다.
-                    p
-                div
-
-                !-- Highlight Card 3 KT&G 상상프렌즈 --
-                div class=bg-slate-50 darkbg-navy-800 border-2 border-slate-20060 darkborder-navy-70060 p-8 rounded-2xl relative overflow-hidden group transition-all duration-300 hoverborder-softBlue-400 darkhoverborder-softBlue-400 hover-translate-y-1 hovershadow-glow
-                    div class=absolute -right-4 -bottom-4 text-8xl text-slate-200 darktext-navy-90040 group-hovertext-softBlue-50010 transition-colors duration-300
-                        i class=fa-solid fa-palettei
-                    div
-                    div class=w-12 h-12 bg-softBlue-50010 border border-softBlue-40020 rounded-xl flex items-center justify-center text-softBlue-600 darktext-softBlue-400 text-xl mb-6 shadow-glow
-                        i class=fa-solid fa-palettei
-                    div
-                    div class=flex items-baseline space-x-1 mb-2
-                        span class=text-4xl lgtext-5xl font-black text-slate-900 darktext-navy-100기획팀span
-                        span class=text-lg font-bold text-softBlue-600 darktext-softBlue-400리드span
-                    div
-                    h3 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-2KT&G 상상프렌즈 활동h3
-                    p class=text-sm text-slate-500 darktext-navy-400 leading-relaxed
-                        공식 서포터즈 기획팀으로서 전반적인 온·오프라인 이벤트 및 대규모 청년 페스티벌 행사를 전반적으로 기획·기안하고 안정적으로 현장 운영을 이끌었습니다.
-                    p
-                div
-            div
-        div
-    section
-
-    !-- [Section 3] Core Points - 4 매력 포인트 --
-    section id=strengths class=py-20 mdpy-28 px-6 mdpx-12 bg-slate-50 darkbg-navy-900 relative z-10
-        div class=max-w-6xl mx-auto
-            !-- Section Title --
-            div class=text-center mb-16
-                span class=text-softBlue-600 darktext-softBlue-400 font-mono text-xs mdtext-sm tracking-widest font-semibold uppercase block mb-3 MY STRENGTHSspan
-                h2 class=text-3xl mdtext-4xl font-black text-slate-900 darktext-navy-100핵심 역량 및 매력 포인트h2
-                p class=text-slate-500 darktext-navy-400 mt-3 text-sm mdtext-base max-w-2xl mx-auto준서 님이 어필하는 독보적인 4가지 무기입니다. 기획에서 협상, 데이터 검증까지 올라운더 비즈니스 기획자임을 증명합니다.p
-            div
-
-            !-- Grid of 4 points --
-            div class=grid grid-cols-1 mdgrid-cols-2 gap-8
-                !-- Point 1 --
-                div class=bg-white darkbg-navy-800 border border-slate-200 darkborder-navy-70080 rounded-2xl p-6 mdp-8 flex items-start gap-5 transition-all duration-300 hoverborder-softBlue-400 darkhoverborder-softBlue-400 hovershadow-glow
-                    div class=flex-shrink-0 w-12 h-12 rounded-xl bg-slate-100 darkbg-navy-900 border border-slate-200 darkborder-navy-700 flex items-center justify-center text-softBlue-600 darktext-softBlue-400 text-xl shadow-inner font-mono font-bold
-                        01
-                    div
-                    div
-                        h3 class=text-xl font-bold text-slate-900 darktext-navy-100 mb-2압도적인 '제휴 및 협상 역량'h3
-                        p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed mb-3
-                            문과대학 새내기배움터 프로모션팀 팀장 활동 시, 한정적인 대학 학생 자치 예산을 메우기 위해 직접 시장 분석 후 비즈니스 기획서를 작성하였습니다. 그 결과 대기업스타트업을 포함한 총 18개 사의 대규모 현물 및 현금 협찬 계약을 성공적으로 이끌었습니다.
-                        p
-                        span class=text-xs text-softBlue-600 darktext-softBlue-400 font-mono bg-softBlue-5005 darkbg-softBlue-50010 border border-softBlue-50015 px-2.5 py-1 rounded#딜메이커 #수익모델기획 #프로모션팀장span
-                    div
-                div
-
-                !-- Point 2 --
-                div class=bg-white darkbg-navy-800 border border-slate-200 darkborder-navy-70080 rounded-2xl p-6 mdp-8 flex items-start gap-5 transition-all duration-300 hoverborder-softBlue-400 darkhoverborder-softBlue-400 hovershadow-glow
-                    div class=flex-shrink-0 w-12 h-12 rounded-xl bg-slate-100 darkbg-navy-900 border border-slate-200 darkborder-navy-700 flex items-center justify-center text-softBlue-600 darktext-softBlue-400 text-xl shadow-inner font-mono font-bold
-                        02
-                    div
-                    div
-                        h3 class=text-xl font-bold text-slate-900 darktext-navy-100 mb-2무에서 유를 창조하는 'BM 설계 능력'h3
-                        p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed mb-3
-                            시장의 미세한 페인 포인트(Pain Point)를 포착하고 이를 정교한 경제 분석 기반의 비즈니스 모델로 실체화하는 능력이 강합니다. 창업경진대회에서 최종 최우수상을 이끌며 비즈니스 아이디어를 현실적이고 매력적인 비즈니스 모델로 가시화하는 실전 기획력을 공식 인증받았습니다.
-                        p
-                        span class=text-xs text-softBlue-600 darktext-softBlue-400 font-mono bg-softBlue-5005 darkbg-softBlue-50010 border border-softBlue-50015 px-2.5 py-1 rounded#창업경진대회최우수 #시장수익구조설계 #페인포인트분석span
-                    div
-                div
-
-                !-- Point 3 --
-                div class=bg-white darkbg-navy-800 border border-slate-200 darkborder-navy-70080 rounded-2xl p-6 mdp-8 flex items-start gap-5 transition-all duration-300 hoverborder-softBlue-400 darkhoverborder-softBlue-400 hovershadow-glow
-                    div class=flex-shrink-0 w-12 h-12 rounded-xl bg-slate-100 darkbg-navy-900 border border-slate-200 darkborder-navy-700 flex items-center justify-center text-softBlue-600 darktext-softBlue-400 text-xl shadow-inner font-mono font-bold
-                        03
-                    div
-                    div
-                        h3 class=text-xl font-bold text-slate-900 darktext-navy-100 mb-2행동하는 기획력 '강력한 실행력'h3
-                        p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed mb-3
-                            상상에 그치는 기획이 아닌, 꼼꼼한 마일스톤 관리와 실천을 통한 마케팅이벤트를 운영합니다. KT&G 상상프렌즈 공식 기획팀으로 다수의 청년 문화 이벤트 및 축제를 기획, 모집, 실행 단계 전반을 총괄하며 무사히 현장 운영까지 이끌었습니다.
-                        p
-                        span class=text-xs text-softBlue-600 darktext-softBlue-400 font-mono bg-softBlue-5005 darkbg-softBlue-50010 border border-softBlue-50015 px-2.5 py-1 rounded#KTG상상프렌즈 #축제및행사기획 #실전프로젝트총괄span
-                    div
-                div
-
-                !-- Point 4 --
-                div class=bg-white darkbg-navy-800 border border-slate-200 darkborder-navy-70080 rounded-2xl p-6 mdp-8 flex items-start gap-5 transition-all duration-300 hoverborder-softBlue-400 darkhoverborder-softBlue-400 hovershadow-glow
-                    div class=flex-shrink-0 w-12 h-12 rounded-xl bg-slate-100 darkbg-navy-900 border border-slate-200 darkborder-navy-700 flex items-center justify-center text-softBlue-600 darktext-softBlue-400 text-xl shadow-inner font-mono font-bold
-                        04
-                    div
-                    div
-                        h3 class=text-xl font-bold text-slate-900 darktext-navy-100 mb-2조율하는 '프로페셔널 커뮤니케이션'h3
-                        p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed mb-3
-                            비즈니스에서 가장 중요한 소통 능력을 갖추고 있습니다. 학생 자치단체, 대학 본부 행정 부서, 영세 자영업 상인, 그리고 대기업 브랜드 담당자까지 성격과 목표가 각기 다른 다양한 이해관계자(Stakeholders) 사이에서 원만한 절충안을 찾아 계약과 파트너십을 완수하는 조율 역량입니다.
-                        p
-                        span class=text-xs text-softBlue-600 darktext-softBlue-400 font-mono bg-softBlue-5005 darkbg-softBlue-50010 border border-softBlue-50015 px-2.5 py-1 rounded#이해관계자조율 #협상전략 #유연한설득력span
-                    div
-                div
-            div
-        div
-    section
-
-    !-- [Section 4] Selected Projects - STAR Method Showcases --
-    section id=projects class=py-20 mdpy-28 px-6 mdpx-12 bg-white darkbg-navy-950 border-t border-b border-slate-100 darkborder-navy-900 relative z-10
-        div class=max-w-6xl mx-auto
-            !-- Section Title --
-            div class=text-center mb-16
-                span class=text-softBlue-600 darktext-softBlue-400 font-mono text-xs mdtext-sm tracking-widest font-semibold uppercase block mb-3 SILENT PROOFSspan
-                h2 class=text-3xl mdtext-4xl font-black text-slate-900 darktext-navy-100선택된 프로젝트 (Projects)h2
-                p class=text-slate-500 darktext-navy-400 mt-3 text-sm mdtext-base max-w-2xl mx-auto준서 님의 비즈니스 성과를 논리적 흐름(STAR Situation-Task-Action-Result)에 기반하여 구체적으로 펼쳐 보입니다.p
-            div
-
-            !-- Custom Interactive Project Tab Navigation --
-            div class=flex justify-start mdjustify-center space-x-2 mdspace-x-4 mb-12 border-b border-slate-200 darkborder-navy-800 pb-2 overflow-x-auto
-                button onclick=switchProjectTab('project-saenae') id=btn-project-saenae class=tab-btn px-4 py-3 text-sm mdtext-base font-bold text-softBlue-600 darktext-softBlue-400 border-b-2 border-softBlue-500 darkborder-softBlue-400 transition-all duration-300 flex items-center gap-2 whitespace-nowrap
-                    i class=fa-solid fa-handshakei 새내기배움터 제휴 프로모션
-                button
-                button onclick=switchProjectTab('project-startup') id=btn-project-startup class=tab-btn px-4 py-3 text-sm mdtext-base font-bold text-slate-400 darktext-navy-400 border-b-2 border-transparent hovertext-slate-800 darkhovertext-navy-100 hoverborder-slate-300 darkhoverborder-navy-700 transition-all duration-300 flex items-center gap-2 whitespace-nowrap
-                    i class=fa-solid fa-trophyi 창업경진대회 BM 개발
-                button
-                button onclick=switchProjectTab('project-ktng') id=btn-project-ktng class=tab-btn px-4 py-3 text-sm mdtext-base font-bold text-slate-400 darktext-navy-400 border-b-2 border-transparent hovertext-slate-800 darkhovertext-navy-100 hoverborder-slate-300 darkhoverborder-navy-700 transition-all duration-300 flex items-center gap-2 whitespace-nowrap
-                    i class=fa-solid fa-palettei KT&G 상상프렌즈 기획팀
-                button
-            div
-
-            !-- Project Tab Contents --
-            div class=bg-slate-50 darkbg-navy-800 border border-slate-200 darkborder-navy-70080 rounded-3xl p-6 mdp-10 shadow-xl darkshadow-2xl relative
+                </h1>
                 
-                !-- Project 1 새내기배움터 제휴 프로모션 --
-                div id=project-saenae class=project-tab-content space-y-8
-                    div class=flex flex-col mdflex-row mditems-center justify-between gap-4 pb-6 border-b border-slate-200 darkborder-navy-700
-                        div
-                            h3 class=text-2xl font-black text-slate-900 darktext-navy-100새내기배움터 18개사 제휴 및 지역상권 연계 기획h3
-                            p class=text-sm text-softBlue-600 darktext-softBlue-400 font-mono mt-1대규모 파트너십 구축 & 프로모션 총괄 팀장p
-                        div
-                        div class=flex flex-wrap gap-2
-                            span class=bg-white darkbg-navy-900 border border-slate-200 darkborder-navy-700 text-xs text-slate-600 darktext-navy-300 px-3 py-1.5 rounded-lg2023 - 2024span
-                            span class=bg-softBlue-50010 border border-softBlue-40020 text-xs text-softBlue-600 darktext-softBlue-400 px-3 py-1.5 rounded-lg제휴영업span
-                        div
-                    div
-
-                    !-- STAR Grid --
-                    div class=grid grid-cols-1 mdgrid-cols-2 gap-8
-                        div class=space-y-6
-                            !-- Situation --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smSdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Situation (상황)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        단과대학 대규모 새내기배움터 행사를 기획하던 중, 학생회 자치 예산의 심각한 한계에 직면했습니다. 이와 동시에 신입생에게 제공되는 혜택과 즐길 거리를 최대화하고 지역 대학가 상권을 살리기 위한 새로운 돌파구가 필요했습니다.
-                                    p
-                                div
-                            div
-                            !-- Task --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smTdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Task (목표)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        외부 기업 협찬 유치와 대학가 인근 상권과의 전략적 제휴를 통해 총 행사 예산의 40% 이상을 현물 및 현금 협찬으로 채우고, 로컬 상인과 연계된 쿠폰 프로모션을 설계하는 것이 최종 골이었습니다.
-                                    p
-                                div
-                            div
-                        div
-
-                        div class=space-y-6
-                            !-- Action --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smAdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Action (수행 내용)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        타겟 기업의 마케팅 핏에 맞춘 홍보 제안서를 직접 기획했습니다. 대기업(화장품, 음료 브랜드) 및 청년 타겟 스타트업 등 총 25개 기업에 제휴 메일을 돌렸고, 18개 사의 성공적인 미팅 및 계약을 이끌어냈습니다. 더불어 주변 상권 8개 자영업 점포를 일일이 방문하며 설득하여 대학생 맞춤형 연계 할인 프로모션 판촉을 성공시켰습니다.
-                                    p
-                                div
-                            div
-                            !-- Result --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smRdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Result (성과)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        strong최종 18개사 기업 제휴 성공strong을 통한 예산 보존율 최고치 갱신 및 신입생 300여 명에게 풍족한 패키지 웰컴키트 제공 성공. 8개 상권 가맹 연계 프로모션으로 실제 해당 상점 매출 기여율이 25% 상승하는 로컬 상권 상생 선례 구축.
-                                    p
-                                div
-                            div
-                        div
-                    div
-                div
-
-                !-- Project 2 창업경진대회 BM 개발 --
-                div id=project-startup class=project-tab-content space-y-8 hidden
-                    div class=flex flex-col mdflex-row mditems-center justify-between gap-4 pb-6 border-b border-slate-200 darkborder-navy-700
-                        div
-                            h3 class=text-2xl font-black text-slate-900 darktext-navy-100창업경진대회 최우수상 비즈니스 모델 설계h3
-                            p class=text-sm text-softBlue-600 darktext-softBlue-400 font-mono mt-1시장 경제성 분석 및 수익 구조 기획 리드p
-                        div
-                        div class=flex flex-wrap gap-2
-                            span class=bg-white darkbg-navy-900 border border-slate-200 darkborder-navy-700 text-xs text-slate-600 darktext-navy-300 px-3 py-1.5 rounded-lg2024span
-                            span class=bg-softBlue-50010 border border-softBlue-40020 text-xs text-softBlue-600 darktext-softBlue-400 px-3 py-1.5 rounded-lg비즈니스 기획span
-                        div
-                    div
-
-                    !-- STAR Grid --
-                    div class=grid grid-cols-1 mdgrid-cols-2 gap-8
-                        div class=space-y-6
-                            !-- Situation --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smSdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Situation (상황)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        교내외 창업경진대회 출전을 준비하며, 단순한 유행성 트렌드 앱 아이디어가 아니라, 실제로 비즈니스 지표가 지속 가능하며 경제적 타당성을 입증할 수 있는 강력한 '수익 비즈니스 모델' 기획이 필요했습니다.
-                                    p
-                                div
-                            div
-                            !-- Task --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smTdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Task (목표)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        전공 지식(경제학, 계량분석)을 동원하여 특정 틈새 시장의 실제 유효 시장 규모(SOM)를 추정하고, 서비스 가격 결정 구조 및 예상 손익분기점(BEP)을 기획서에 담아 신뢰도 높게 입증하는 것이 목표였습니다.
-                                    p
-                                div
-                            div
-                        div
-
-                        div class=space-y-6
-                            !-- Action --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smAdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Action (수행 내용)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        유사 산업 데이터를 리서치하여 수요 함수를 시뮬레이션하고, 유저 획득 비용(CAC)과 고객 생애 가치(LTV)를 구조화했습니다. 기획한 BM이 어떻게 타 플랫폼에 비해 높은 마진율과 낮은 파트너 수수료로 지속 가능성을 갖는지 구조 도식화 및 IR 장표를 전량 담당 제작했습니다.
-                                    p
-                                div
-                            div
-                            !-- Result --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smRdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Result (성과)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        심사위원들로부터 대학생 수준에서 찾아보기 힘든 뛰어난 비즈니스 수치화 검증 능력이라는 호평과 함께 최종 창업경진대회 최우수상(1위) 수상의 결실을 맺었습니다.
-                                    p
-                                div
-                            div
-                        div
-                    div
-                div
-
-                !-- Project 3 KT&G 상상프렌즈 기획팀 --
-                div id=project-ktng class=project-tab-content space-y-8 hidden
-                    div class=flex flex-col mdflex-row mditems-center justify-between gap-4 pb-6 border-b border-slate-200 darkborder-navy-700
-                        div
-                            h3 class=text-2xl font-black text-slate-900 darktext-navy-100KT&G 상상프렌즈 공식 기획팀 페스티벌 운영h3
-                            p class=text-sm text-softBlue-600 darktext-softBlue-400 font-mono mt-1대규모 대학생 오프라인 행사 기획 및 실행 리더p
-                        div
-                        div class=flex flex-wrap gap-2
-                            span class=bg-white darkbg-navy-900 border border-slate-200 darkborder-navy-700 text-xs text-slate-600 darktext-navy-300 px-3 py-1.5 rounded-lg2024span
-                            span class=bg-softBlue-50010 border border-softBlue-40020 text-xs text-softBlue-600 darktext-softBlue-400 px-3 py-1.5 rounded-lg이벤트 마케팅span
-                        div
-                    div
-
-                    !-- STAR Grid --
-                    div class=grid grid-cols-1 mdgrid-cols-2 gap-8
-                        div class=space-y-6
-                            !-- Situation --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smSdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Situation (상황)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        KT&G 상상프렌즈 공식 기획팀으로서, 트렌디한 감각과 청년 타겟 맞춤형 콘텐츠를 조화롭게 융합하여 대학생들이 직접 찾아오고 싶게 만드는 지역 대형 문화 페스티벌을 열어야 하는 미션을 부여받았습니다.
-                                    p
-                                div
-                            div
-                            !-- Task --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smTdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Task (목표)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        행사 모객 인원 500명 돌파 및 방문자 만족도 4.55.0 이상의 결과를 견인하는 재미있고 참신한 참여형 프로그램들을 시간대별로 촘촘히 짜내는 마일스톤 관리가 필요했습니다.
-                                    p
-                                div
-                            div
-                        div
-
-                        div class=space-y-6
-                            !-- Action --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smAdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Action (수행 내용)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        현장 부스 설계 및 스탬프 투어식 게이미피케이션 기법을 도입했습니다. 각 구성원들의 R&R을 명확히 하고, 행사 준비 단계의 위험 요인 체크리스트를 제작했습니다. 추가로, 잠재 참석 대학생 데이터를 기반으로 한 SNS 가상 타겟 마케팅 광고 및 대학 커뮤니티 전면 바이럴 기획도 병행했습니다.
-                                    p
-                                div
-                            div
-                            !-- Result --
-                            div class=flex gap-4
-                                div class=flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 darkbg-navy-900 text-softBlue-600 darktext-softBlue-400 border border-slate-300 darkborder-softBlue-50030 flex items-center justify-center font-bold text-smRdiv
-                                div
-                                    h4 class=text-lg font-bold text-slate-900 darktext-navy-100 mb-1Result (성과)h4
-                                    p class=text-slate-500 darktext-navy-400 text-sm leading-relaxed
-                                        strong현장 오프라인 참석자 650명 이상 기록strong (목표 대비 130% 상회), 참가자 피드백 설문 조사 결과 만족도 4.75.0 최고 평점 기록. 무사고 안전 행사 관리 완수를 인정받아 성공적인 기획 역량을 증명했습니다.
-                                    p
-                                div
-                            div
-                        div
-                    div
-                div
-
-            div
-        div
-    section
-
-    !-- [Section 5] Skills & Education --
-    section id=skills class=py-20 mdpy-28 px-6 mdpx-12 bg-slate-50 darkbg-navy-900 relative z-10
-        div class=max-w-6xl mx-auto
-            !-- Section Title --
-            div class=text-center mb-16
-                span class=text-softBlue-600 darktext-softBlue-400 font-mono text-xs mdtext-sm tracking-widest font-semibold uppercase block mb-3 PREPARED SKILLSspan
-                h2 class=text-3xl mdtext-4xl font-black text-slate-900 darktext-navy-100전공 및 기술 역량 (Skills & Education)h2
-                p class=text-slate-500 darktext-navy-400 mt-3 text-sm mdtext-base max-w-2xl mx-auto준서 님의 전문성의 모태가 된 대학 학문과, 비즈니스 가치를 수치로 풀어내기 위해 보유 중인 분석 및 업무 도구들입니다.p
-            div
-
-            div class=grid grid-cols-1 lggrid-cols-12 gap-12 items-start
+                <p class="text-slate-600 dark:text-slate-300 text-lg md:text-xl leading-relaxed max-w-2xl font-light">
+                    안녕하세요, <strong class="font-semibold text-slate-800 dark:text-white">강준서</strong>입니다. 시장 흐름을 꿰뚫는 경제학적 통찰과 데이터를 논리적 기획서로 전환하는 비즈니스 분석 역량의 완벽한 융합을 자랑합니다. 생각에만 그치지 않고, 수치와 제휴 성과로 직접 비즈니스 가능성을 입증합니다.
+                </p>
                 
-                !-- Left Education & Vision (512 Layout) --
-                div class=lgcol-span-5 space-y-8
-                    div class=bg-white darkbg-navy-800 border border-slate-200 darkborder-navy-70080 p-8 rounded-2xl shadow-sm
-                        h3 class=text-xl font-bold text-slate-900 darktext-navy-100 mb-6 flex items-center gap-2
-                            i class=fa-solid fa-graduation-cap text-softBlue-600 darktext-softBlue-400i 학력 정보 (Education)
-                        h3
-                        div class=space-y-6
-                            div class=border-l-2 border-softBlue-500 darkborder-softBlue-400 pl-4 py-1
-                                h4 class=text-base font-bold text-slate-900 darktext-navy-100한양대학교 ERICAh4
-                                p class=text-sm text-slate-600 darktext-navy-300 mt-1학사 학위 재학 중 (2002년생)p
-                                div class=mt-3 flex flex-col gap-1.5 text-xs text-slate-500 darktext-navy-400
-                                    span• strong주전공strong 경제학부 (도메인 이해도, 시장 메커니즘 분석)span
-                                    span• strong융합전공strong 비즈니스애널리틱스 융합전공 (비즈니스 분석 역량)span
-                                div
-                            div
-                            
-                            div class=text-sm text-slate-500 darktext-navy-400 leading-relaxed pt-2 border-t border-slate-200 darkborder-navy-70060
-                                strong class=text-softBlue-600 darktext-softBlue-400인사담당자님!strong 저는 이론적 경제 현상의 이해에 그치지 않고, 비즈니스 도메인의 실전 데이터를 직접 프로그래밍 도구로 정제 및 모델링할 줄 아는 차별화된 융합 실무 인재입니다.
-                            div
-                        div
-                    div
-
-                    !-- CTA Download Area --
-                    div class=bg-gradient-to-br from-slate-100 to-slate-200 darkfrom-navy-800 darkto-navy-900 border border-slate-200 darkborder-softBlue-50020 p-8 rounded-2xl text-center space-y-4
-                        h4 class=text-base font-bold text-slate-900 darktext-navy-100강준서 님의 상세 역량이 궁금하신가요h4
-                        p class=text-xs text-slate-500 darktext-navy-400지금 바로 한 페이지 분량으로 명확히 정돈된 이력서를 다운로드해 보세요.p
-                        button onclick=downloadResume() class=w-full bg-softBlue-600 hoverbg-softBlue-700 darkbg-softBlue-500 darkhoverbg-softBlue-600 text-white font-bold py-3 rounded-xl transition-all duration-300 hovershadow-glow flex items-center justify-center gap-2
-                            i class=fa-solid fa-file-pdfi 국문 이력서 PDF 받기
-                        button
-                    div
-                div
-
-                !-- Right Tooling Stack & Levels (712 Layout) --
-                div class=lgcol-span-7 space-y-8
-                    div class=bg-white darkbg-navy-800 border border-slate-200 darkborder-navy-70080 p-8 rounded-2xl shadow-sm
-                        h3 class=text-xl font-bold text-slate-900 darktext-navy-100 mb-6 flex items-center gap-2
-                            i class=fa-solid fa-laptop-code text-softBlue-600 darktext-softBlue-400i 사용 기술 및 업무 툴 (Skills)
-                        h3
-
-                        !-- Skill Category Data & Programming --
-                        div class=space-y-4 mb-8
-                            h4 class=text-xs font-mono font-bold tracking-widest text-softBlue-600 darktext-softBlue-400 uppercase border-b border-slate-200 darkborder-navy-70080 pb-1Data & Analyticsh4
-                            
-                            !-- Skill Item 1 --
-                            div class=space-y-1.5
-                                div class=flex justify-between text-sm
-                                    span class=font-bold text-slate-850 darktext-navy-200Python (Pandas, Numpy, Scikit-learn)span
-                                    span class=text-softBlue-600 darktext-softBlue-400 font-mono80%span
-                                div
-                                div class=w-full h-2 bg-slate-200 darkbg-navy-950 rounded-full overflow-hidden
-                                    div class=h-full bg-softBlue-500 darkbg-softBlue-400 rounded-full style=width 80%div
-                                div
-                                p class=text-[11px] text-slate-500 darktext-navy-400데이터 전처리, 통계 추정, 기본 기계학습 모델링 및 시각화 수행 가능p
-                            div
-
-                            !-- Skill Item 2 --
-                            div class=space-y-1.5
-                                div class=flex justify-between text-sm
-                                    span class=font-bold text-slate-850 darktext-navy-200SQL  Data Manipulationspan
-                                    span class=text-softBlue-600 darktext-softBlue-400 font-mono75%span
-                                div
-                                div class=w-full h-2 bg-slate-200 darkbg-navy-950 rounded-full overflow-hidden
-                                    div class=h-full bg-softBlue-500 darkbg-softBlue-400 rounded-full style=width 75%div
-                                div
-                                p class=text-[11px] text-slate-500 darktext-navy-400RDBMS 데이터 원형 추출, 집계 분석 및 조인 연산 가능p
-                            div
-                        div
-
-                        !-- Skill Category PM & Productivity --
-                        div class=space-y-4
-                            h4 class=text-xs font-mono font-bold tracking-widest text-softBlue-600 darktext-softBlue-400 uppercase border-b border-slate-200 darkborder-navy-70080 pb-1Productivity & Collaborationh4
-                            
-                            !-- Badges Grid --
-                            div class=grid grid-cols-2 smgrid-cols-3 gap-3
-                                div class=bg-slate-50 darkbg-navy-900 border border-slate-200 darkborder-navy-700 p-3.5 rounded-xl text-center space-y-1 hoverborder-softBlue-400 darkhoverborder-softBlue-50030 transition-all
-                                    div class=text-softBlue-600 darktext-softBlue-400 text-lgi class=fa-solid fa-file-excelidiv
-                                    div class=text-xs font-bold text-slate-800 darktext-navy-200Excel  Google Sheetsdiv
-                                    div class=text-[10px] text-slate-500 darktext-navy-400데이터 함수, 피벗 테이블 활용div
-                                div
-                                div class=bg-slate-50 darkbg-navy-900 border border-slate-200 darkborder-navy-700 p-3.5 rounded-xl text-center space-y-1 hoverborder-softBlue-400 darkhoverborder-softBlue-50030 transition-all
-                                    div class=text-softBlue-600 darktext-softBlue-400 text-lgi class=fa-solid fa-chart-lineidiv
-                                    div class=text-xs font-bold text-slate-800 darktext-navy-200Tableaudiv
-                                    div class=text-[10px] text-slate-500 darktext-navy-400대시보드 기획 및 기본 시각화div
-                                div
-                                div class=bg-slate-50 darkbg-navy-900 border border-slate-200 darkborder-navy-700 p-3.5 rounded-xl text-center space-y-1 hoverborder-softBlue-400 darkhoverborder-softBlue-50030 transition-all
-                                    div class=text-softBlue-600 darktext-softBlue-400 text-lgi class=fa-brands fa-figmaidiv
-                                    div class=text-xs font-bold text-slate-800 darktext-navy-200Figmadiv
-                                    div class=text-[10px] text-slate-500 darktext-navy-400화면설계서, 와이어프레임 기획div
-                                div
-                                div class=bg-slate-50 darkbg-navy-900 border border-slate-200 darkborder-navy-700 p-3.5 rounded-xl text-center space-y-1 hoverborder-softBlue-400 darkhoverborder-softBlue-50030 transition-all
-                                    div class=text-softBlue-600 darktext-softBlue-400 text-lgi class=fa-solid fa-clipboard-listidiv
-                                    div class=text-xs font-bold text-slate-800 darktext-navy-200Notion  Slackdiv
-                                    div class=text-[10px] text-slate-500 darktext-navy-400프로젝트 진척율 관리div
-                                div
-                                div class=bg-slate-50 darkbg-navy-900 border border-slate-200 darkborder-navy-700 p-3.5 rounded-xl text-center space-y-1 hoverborder-softBlue-400 darkhoverborder-softBlue-50030 transition-all
-                                    div class=text-softBlue-600 darktext-softBlue-400 text-lgi class=fa-solid fa-commentsidiv
-                                    div class=text-xs font-bold text-slate-800 darktext-navy-200Communicationdiv
-                                    div class=text-[10px] text-slate-500 darktext-navy-400팀 리드 및 타협점 조율div
-                                div
-                                div class=bg-slate-50 darkbg-navy-900 border border-slate-200 darkborder-navy-700 p-3.5 rounded-xl text-center space-y-1 hoverborder-softBlue-400 darkhoverborder-softBlue-50030 transition-all
-                                    div class=text-softBlue-600 darktext-softBlue-400 text-lgi class=fa-solid fa-file-powerpointidiv
-                                    div class=text-xs font-bold text-slate-800 darktext-navy-200Proposal Writingdiv
-                                    div class=text-[10px] text-slate-500 darktext-navy-400협찬 제안서 및 IR 자료 기획div
-                                div
-                            div
-                        div
-
-                    div
-                div
-
-            div
-        div
-    section
-
-    !-- [Section 6] Contact - 신뢰를 주는 마지막 연락선 --
-    section id=contact class=py-20 mdpy-28 px-6 mdpx-12 bg-white darkbg-navy-950 border-t border-slate-200 darkborder-navy-900 relative overflow-hidden z-10
-        div class=max-w-4xl mx-auto text-center space-y-8
-            span class=text-softBlue-600 darktext-softBlue-400 font-mono text-xs mdtext-sm tracking-widest font-semibold uppercase CONNECT WITH MEspan
-            h2 class=text-3xl mdtext-5xl font-black text-slate-900 darktext-navy-100함께 새로운 비즈니스를br그려나갈 준비가 되셨나요h2
-            p class=text-slate-600 darktext-navy-300 text-sm mdtext-base max-w-xl mx-auto leading-relaxed
-                강준서 님의 다재다능한 기획 역량과 데이터 분석력이 필요하시다면,br
-                아래 소통 채널을 통해 언제든 제안을 보내주세요. 신속히 회신해 드리겠습니다!
-            p
-
-            !-- Visual Contact Panel --
-            div class=bg-slate-50 darkbg-navy-800 border border-slate-200 darkborder-navy-700 max-w-lg mx-auto rounded-3xl p-6 mdp-8 space-y-6 shadow-lg darkshadow-2xl
-                !-- Copyable Email --
-                div class=flex flex-col items-center space-y-2
-                    span class=text-xs text-slate-500 darktext-navy-400 font-mono tracking-wider이메일 주소span
-                    div class=flex items-center gap-3 bg-white darkbg-navy-900 border border-slate-200 darkborder-navy-700 px-4 mdpx-6 py-3 rounded-xl w-full justify-between group
-                        span id=email-address class=text-sm mdtext-base font-bold text-slate-800 darktext-navy-100 select-allrkdwnstj1216@gmail.comspan
-                        button onclick=copyEmail() class=text-softBlue-600 darktext-softBlue-400 hovertext-softBlue-700 darkhovertext-white transition-colors duration-200 text-sm flex items-center gap-1 font-mono title=이메일 복사하기
-                            i class=fa-regular fa-copyi Copy
-                        button
-                    div
-                div
-
-                !-- Social links mock --
-                div class=grid grid-cols-2 gap-3 pt-2
-                    a href=httpsgithub.com target=_blank class=bg-white darkbg-navy-900 border border-slate-200 darkborder-navy-700 hoverborder-softBlue-400 darkhoverborder-softBlue-400 text-slate-700 darktext-navy-200 hovertext-softBlue-600 darkhovertext-softBlue-400 p-3.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm font-semibold
-                        i class=fa-brands fa-github text-lgi GitHub
-                    a
-                    a href=httpslinkedin.com target=_blank class=bg-white darkbg-navy-900 border border-slate-200 darkborder-navy-700 hoverborder-softBlue-400 darkhoverborder-softBlue-400 text-slate-700 darktext-navy-200 hovertext-softBlue-600 darkhovertext-softBlue-400 p-3.5 rounded-xl transition-all flex items-center justify-center gap-2 text-sm font-semibold
-                        i class=fa-brands fa-linkedin text-lgi LinkedIn
-                    a
-                div
-            div
-
-            !-- Warm Final Message --
-            div class=pt-8 text-xs text-slate-400 darktext-navy-400 space-y-1
-                p본 포트폴리오는 경제학 & 비즈니스 애널리틱스 역량을 입증하기 위해 기획된 전용 웹페이지입니다.p
-                p© 2026 KANG JUNSEO. All rights reserved.p
-            div
-        div
-    section
-
-    !-- Footer --
-    footer class=bg-slate-100 darkbg-navy-950 py-6 text-center text-xs text-slate-500 darktext-navy-500 border-t border-slate-200 darkborder-navy-90040 relative z-10
-        div class=max-w-7xl mx-auto px-6
-            Designed & Built by span class=text-softBlue-600 darktext-softBlue-400 font-bold강준서span
-        div
-    footer
-
-    !-- Scripts for UI Functionality --
-    script
-         Theme Toggle Controller (Light  Dark Mode Switch)
-        const htmlElement = document.documentElement;
-        const themeToggleBtn = document.getElementById('theme-toggle-btn');
-        const themeToggleIcon = document.getElementById('theme-toggle-icon');
-
-         Check user preferences or previous state
-        if (localStorage.getItem('theme') === 'light') {
-            htmlElement.classList.remove('dark');
-            themeToggleIcon.className = 'fa-solid fa-moon text-md';
-            updateStylesForTheme(false);
-        } else {
-            htmlElement.classList.add('dark');
-            themeToggleIcon.className = 'fa-solid fa-sun text-md';
-            updateStylesForTheme(true);
-        }
-
-        themeToggleBtn.addEventListener('click', () = {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                themeToggleIcon.className = 'fa-solid fa-moon text-md';
-                localStorage.setItem('theme', 'light');
-                updateStylesForTheme(false);
-            } else {
-                htmlElement.classList.add('dark');
-                themeToggleIcon.className = 'fa-solid fa-sun text-md';
-                localStorage.setItem('theme', 'dark');
-                updateStylesForTheme(true);
-            }
-        });
-
-        function updateStylesForTheme(isDark) {
-            if (isDark) {
-                document.documentElement.style.setProperty('--scroll-track-color', '#0A192F');
-                document.documentElement.style.setProperty('--scroll-thumb-color', '#112240');
-            } else {
-                document.documentElement.style.setProperty('--scroll-track-color', '#F1F5F9');
-                document.documentElement.style.setProperty('--scroll-thumb-color', '#CBD5E1');
-            }
-        }
-
-         Real-time Scroll Progress Bar Indicator
-        const scrollProgressBar = document.getElementById('scroll-progress-bar');
-        window.addEventListener('scroll', () = {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolledPercentage = (scrollTop  docHeight)  100;
-            scrollProgressBar.style.width = scrolledPercentage + '%';
-        });
-
-         Parallax Scrolling effect for Background Blobs (공간감 연출)
-        const blob1 = document.getElementById('parallax-blob-1');
-        const blob2 = document.getElementById('parallax-blob-2');
-        const blob3 = document.getElementById('parallax-blob-3');
-
-        window.addEventListener('scroll', () = {
-            const scrollY = window.scrollY;
+                <!-- CTA buttons with smooth scrolling -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="#projects" class="inline-flex items-center justify-center space-x-2 bg-softblue-500 hover:bg-softblue-600 text-white font-bold py-3.5 px-8 rounded-2xl shadow-xl shadow-softblue-500/30 hover:shadow-softblue-500/45 transform hover:-translate-y-0.5 transition-all w-full sm:w-auto">
+                        <span>프로젝트 살펴보기</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center space-x-2 bg-transparent hover:bg-slate-100 dark:hover:bg-navy-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-navy-700 font-bold py-3.5 px-8 rounded-2xl transition-all w-full sm:w-auto">
+                        <span>이력서 다운로드</span>
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                </div>
+            </div>
             
-             Apply different parallax factor for layers to create 3D depth perception
-            if (blob1) blob1.style.transform = `translateY(${scrollY  0.15}px)`;
-            if (blob2) blob2.style.transform = `translateY(${scrollY  -0.1}px)`;
-            if (blob3) blob3.style.transform = `translateY(${scrollY  0.05}px)`;
+            <!-- Right Visual Interactive Dashboard Showcase -->
+            <div class="lg:col-span-5 relative flex justify-center items-center">
+                <div class="relative w-full max-w-[420px] h-[420px] rounded-3xl bg-gradient-to-tr from-softblue-500 to-indigo-500 p-1.5 glow-aura">
+                    <div class="w-full h-full bg-white dark:bg-navy-950 rounded-[22px] p-6 flex flex-col justify-between relative overflow-hidden">
+                        
+                        <!-- Visual Grid Elements -->
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-navy-900 pb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <span class="text-xs font-mono text-slate-400 dark:text-navy-500">analyst_dash.py</span>
+                        </div>
+                        
+                        <!-- Visual Performance Metric Widget -->
+                        <div class="my-auto space-y-6">
+                            <!-- Visual Graphic Chart -->
+                            <div class="flex justify-between items-end h-28 px-4 border-b border-dashed border-slate-200 dark:border-navy-800 pb-2">
+                                <div class="w-8 bg-slate-200 dark:bg-navy-800 rounded-t-lg h-[25%] transition-all duration-1000 hover:bg-softblue-400"></div>
+                                <div class="w-8 bg-slate-200 dark:bg-navy-800 rounded-t-lg h-[45%] transition-all duration-1000 hover:bg-softblue-400"></div>
+                                <div class="w-8 bg-softblue-500 rounded-t-lg h-[85%] relative group">
+                                    <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-softblue-500 text-white text-xs font-bold py-1 px-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">제휴 성공률 240%</div>
+                                </div>
+                                <div class="w-8 bg-slate-200 dark:bg-navy-800 rounded-t-lg h-[60%] transition-all duration-1000 hover:bg-softblue-400"></div>
+                            </div>
+                            
+                            <!-- Key Metrics Indicators -->
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-3 bg-slate-50 dark:bg-navy-900 rounded-xl border border-slate-100 dark:border-navy-800">
+                                    <p class="text-xs text-slate-400 dark:text-slate-500 font-medium">B/D 제안 도출 건수</p>
+                                    <p class="text-xl font-bold text-slate-800 dark:text-white mt-1">+35건</p>
+                                </div>
+                                <div class="p-3 bg-slate-50 dark:bg-navy-900 rounded-xl border border-slate-100 dark:border-navy-800">
+                                    <p class="text-xs text-slate-400 dark:text-slate-500 font-medium">분석 가설 검증도</p>
+                                    <p class="text-xl font-bold text-softblue-500 mt-1">98.4%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Tags Overlay inside Dashboard Mockup -->
+                        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-100 dark:border-navy-900">
+                            <span class="text-[10px] font-semibold bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 px-2.5 py-1 rounded-md">Python SQL</span>
+                            <span class="text-[10px] font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-md">제휴 딜 메이커</span>
+                            <span class="text-[10px] font-semibold bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 px-2.5 py-1 rounded-md">BM 기획</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- SECTION 2: HIGHLIGHTS (IMPACT STATS DASHBOARD) -->
+    <section id="about" class="py-24 px-6 bg-slate-50 dark:bg-navy-950/40 relative z-10 border-y border-slate-200 dark:border-navy-900">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-softblue-500 uppercase tracking-widest">KEY PERFORMANCE METRICS</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white mt-3">숫자로 검증하는 강준서의 가치</p>
+                <div class="w-16 h-1 bg-softblue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Interlocking High-Impact Stats Display Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Stat Card 1 -->
+                <div class="p-8 bg-white dark:bg-navy-900/60 rounded-3xl border border-slate-200 dark:border-navy-800/80 hover:border-softblue-500 dark:hover:border-softblue-500/50 hover:shadow-xl hover:shadow-softblue-500/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-softblue-50 dark:bg-softblue-950/50 text-softblue-500 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform mb-6">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm font-semibold">새내기배움터 프로모션 팀장</p>
+                    <div class="flex items-baseline space-x-1 mt-3">
+                        <span class="text-4xl sm:text-5xl font-extrabold text-slate-800 dark:text-white" id="stat-count-1">18</span>
+                        <span class="text-2xl font-bold text-softblue-500">개사 제휴</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-4 leading-relaxed">
+                        18개 기업 파트너 및 8개 주요 학내 상권과의 전략적 협상 유치를 통해 비즈니스 제휴 유치력을 직관적으로 입증했습니다.
+                    </p>
+                </div>
+
+                <!-- Stat Card 2 -->
+                <div class="p-8 bg-white dark:bg-navy-900/60 rounded-3xl border border-slate-200 dark:border-navy-800/80 hover:border-softblue-500 dark:hover:border-softblue-500/50 hover:shadow-xl hover:shadow-softblue-500/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/30 text-amber-500 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform mb-6">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm font-semibold">전국창업경진대회</p>
+                    <div class="flex items-baseline space-x-1 mt-3">
+                        <span class="text-4xl sm:text-5xl font-extrabold text-slate-800 dark:text-white" id="stat-count-2">최우수</span>
+                        <span class="text-2xl font-bold text-amber-500">상 수상</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-4 leading-relaxed">
+                        고객의 페인 포인트 분석부터 수익 모델 설계까지, 실체 있는 비즈니스 아이디어를 기획하여 가치를 공인받았습니다.
+                    </p>
+                </div>
+
+                <!-- Stat Card 3 -->
+                <div class="p-8 bg-white dark:bg-navy-900/60 rounded-3xl border border-slate-200 dark:border-navy-800/80 hover:border-softblue-500 dark:hover:border-softblue-500/50 hover:shadow-xl hover:shadow-softblue-500/5 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-500 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform mb-6">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm font-semibold">KT&G 상상프렌즈 기획팀</p>
+                    <div class="flex items-baseline space-x-1 mt-3">
+                        <span class="text-4xl sm:text-5xl font-extrabold text-slate-800 dark:text-white" id="stat-count-3">대규모</span>
+                        <span class="text-2xl font-bold text-indigo-500">행사 기획</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mt-4 leading-relaxed">
+                        실제 소비자 트렌드 데이터와 가설을 바탕으로 최적의 참여형 마케팅 캠페인을 기획 및 리드하며 높은 타겟 만족도를 얻어냈습니다.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: CORE POINTS (4 STRENGTH CARDS) -->
+    <section id="strengths" class="py-24 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-softblue-500 uppercase tracking-widest">FOUR CORE PILLARS</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white mt-3">이유 있는 자신감, 4가지 핵심역량</p>
+                <div class="w-16 h-1 bg-softblue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- 2x2 Responsive Strength Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Core Card 1 -->
+                <div class="p-8 bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-800/60 shadow-md flex items-start space-x-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-softblue-500 text-white flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white">제휴 및 파트너 협상 역량</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            대학 새내기배움터 프로모션 팀장으로서 **18개 기업 파트너쉽과 8개 상권 제휴**를 유치하였습니다. 기업과 학내 자원 간 윈윈(Win-Win) 구조를 기획하고 협상하는 차별화된 비즈니스 딜 메이커 역량을 보유하고 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Core Card 2 -->
+                <div class="p-8 bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-800/60 shadow-md flex items-start space-x-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white">비즈니스 모델(BM) 설계 능력</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            아이디어가 실제 비즈니스로 성립할 수 있도록 시장성 검증과 가설 설정을 명확히 진행합니다. **창업경진대회 최우수상** 수상을 통해 타겟 페인 포인트를 해결하고 지속 가능성을 입증하는 BM 기획력을 입증했습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Core Card 3 -->
+                <div class="p-8 bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-800/60 shadow-md flex items-start space-x-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white">강력한 실행력과 캠페인 기획력</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            KT&G 상상프렌즈 기획팀으로서 전 과정에 걸쳐 적극적으로 캠페인을 제안하고 추진했습니다. 타겟층의 데이터 분석 및 선호도를 분석하여, 기획에만 머무르지 않고 대규모 현장 실행을 직접 리드하여 성공으로 이끌었습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Core Card 4 -->
+                <div class="p-8 bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-800/60 shadow-md flex items-start space-x-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white">조율형 프로페셔널 커뮤니케이션</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            대기업 임원, 소상공인, 학과 교수진, 대외활동 유관부서 및 각양각색의 학생 조직 등 매우 다양한 이해관계자(Stakeholders) 사이에서 상생의 공통분모를 찾아 조율하며 최고의 조율 결과를 얻어내는 소통 역량을 가졌습니다.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: SELECTED PROJECTS (STAR METHODOLOGY TABS) -->
+    <section id="projects" class="py-24 px-6 bg-slate-50 dark:bg-navy-950/40 relative z-10 border-y border-slate-200 dark:border-navy-900">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-softblue-500 uppercase tracking-widest">SELECTED PORTFOLIO</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white mt-3">기획을 증명해 온 대표 프로젝트</p>
+                <div class="w-16 h-1 bg-softblue-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-500 dark:text-slate-400 mt-4 text-sm">각 탭을 누르면 상세한 STAR(상황-목표-실행-성과) 분석을 확인하실 수 있습니다.</p>
+            </div>
+
+            <!-- Interative Tabs Controllers -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+                <button onclick="switchTab('tab-orientation')" id="btn-tab-orientation" class="tab-btn py-3 px-6 rounded-2xl font-bold text-sm transition-all focus:outline-none w-full sm:w-auto text-center border bg-softblue-500 text-white border-softblue-500 shadow-md">
+                    <i class="fa-solid fa-handshake mr-2"></i>새내기배움터 제휴 프로모션
+                </button>
+                <button onclick="switchTab('tab-startup')" id="btn-tab-startup" class="tab-btn py-3 px-6 rounded-2xl font-bold text-sm transition-all focus:outline-none w-full sm:w-auto text-center border bg-white dark:bg-navy-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-navy-800 hover:border-softblue-500">
+                    <i class="fa-solid fa-lightbulb mr-2"></i>창업경진대회 BM 기획
+                </button>
+                <button onclick="switchTab('tab-sangsang')" id="btn-tab-sangsang" class="tab-btn py-3 px-6 rounded-2xl font-bold text-sm transition-all focus:outline-none w-full sm:w-auto text-center border bg-white dark:bg-navy-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-navy-800 hover:border-softblue-500">
+                    <i class="fa-solid fa-bullhorn mr-2"></i>KT&G 상상프렌즈 캠페인
+                </button>
+            </div>
+
+            <!-- Tab Content Pane Container -->
+            <div class="bg-white dark:bg-navy-900 rounded-3xl p-8 border border-slate-200 dark:border-navy-800 shadow-xl max-w-5xl mx-auto">
+                
+                <!-- Tab Item 1: Orientation Promotion -->
+                <div id="tab-orientation" class="tab-content block space-y-8">
+                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-navy-800 pb-6">
+                        <div>
+                            <span class="text-xs font-bold text-softblue-500 bg-softblue-500/10 px-3 py-1.5 rounded-full">프로모션 제휴 기획</span>
+                            <h3 class="text-2xl font-bold text-slate-800 dark:text-white mt-3">문과대학 새내기배움터 프로모션 총괄</h3>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs text-slate-400">기간: 2024년 01월 - 2024년 02월</p>
+                            <p class="text-sm font-semibold text-softblue-500 mt-1">성과: 총 18개사 제휴 체결 및 예산 150% 확보</p>
+                        </div>
+                    </div>
+
+                    <!-- STAR Methodology Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <!-- Situation -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-softblue-500 uppercase tracking-wider mb-2">S. Situation (배경)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    새내기배움터 행사를 준비하며 한정된 예산 문제로 프로그램의 질을 개선하기 어려운 한계에 봉착했습니다. 단순 학생회 회비 지출에 의존하는 기존 관습에서 탈피하여, 외부 기업 프로모션 제휴라는 새로운 비즈니스 모델로의 패러다임 전환이 절실한 시점이었습니다.
+                                </p>
+                            </div>
+                            <!-- Task -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-softblue-500 uppercase tracking-wider mb-2">T. Task (목표 및 해결 과제)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    목표 예산 확보율 +50%를 설정하고, 기업에는 ‘대학생 밀착 타겟 마케팅’ 가치를 제안하고, 소상공인에게는 ‘학과 정기 상권 소비’를 제안하는 투트랙 제휴 기획안을 도출하는 핵심 미션을 수립했습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Action -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-softblue-500 uppercase tracking-wider mb-2">A. Action (수행 과정)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    기업 대상의 맞춤형 제휴 제안서 제안 및 학교 앞 주요 요식업 상권 20여 곳을 직접 발로 뛰며 영업했습니다. 특히 학생들에게 큰 영향력을 발휘할 수 있는 미디어 노출 효과와 현장 부스 기획안을 시각화해 기업 담당자들의 페인 포인트를 실무적으로 해소해 주었습니다.
+                                </p>
+                            </div>
+                            <!-- Result -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-softblue-500 uppercase tracking-wider mb-2">R. Result (정량적 성과)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    **최종 18개 기업 스폰서쉽 유치 및 학교 앞 우수 골목 상권 8곳과의 장기 파트너십 구축**에 성공했습니다. 기존 예산의 1.5배가 넘는 풍부한 후원 물품과 예산을 조달해 냄으로써 단일 학과 행사 역사상 최대의 재정적 및 규모적 성공을 이끌었습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Item 2: Startup Competition -->
+                <div id="tab-startup" class="tab-content hidden space-y-8">
+                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-navy-800 pb-6">
+                        <div>
+                            <span class="text-xs font-bold text-amber-500 bg-amber-500/10 px-3 py-1.5 rounded-full">비즈니스 모델 설계</span>
+                            <h3 class="text-2xl font-bold text-slate-800 dark:text-white mt-3">전국 연합 창업경진대회 서비스 BM 기획</h3>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs text-slate-400">기간: 2023년 09월 - 2023년 11월</p>
+                            <p class="text-sm font-semibold text-amber-500 mt-1">성과: 최우수상 수상 (상위 2% 달성)</p>
+                        </div>
+                    </div>
+
+                    <!-- STAR Methodology Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <!-- Situation -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-amber-500 uppercase tracking-wider mb-2">S. Situation (배경)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    시장 진출의 가치가 유효하고 지속가능한 독창적 플랫폼 아이디어가 필요했습니다. 수많은 참여 경쟁자들 속에서 아이디어의 탁월성과 비즈니스 모델로의 고도화 과정이 면밀하게 평가받는 공모전이었습니다.
+                                </p>
+                            </div>
+                            <!-- Task -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-amber-500 uppercase tracking-wider mb-2">T. Task (목표 및 해결 과제)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    타겟 세분화 및 페인 포인트의 정확한 분석을 통해 시장성(TAM-SAM-SOM)을 철저히 검증하고, 비용 구조 및 장기 수익 파이프라인(Pricing Model)을 논리 정연하게 설계하는 최종 기획을 목표로 삼았습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Action -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-amber-500 uppercase tracking-wider mb-2">A. Action (수행 과정)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    경제학적 분석론을 바탕으로 타겟 타당성 리서치를 이끌었습니다. 가설을 직접 설계하여 타겟 잠재고객 서베이 데이터와 통계치를 시각적 데이터로 기획서에 반영했으며, 정교한 재무 시뮬레이션을 구현하여 투자 심사역 심사위원단을 성공적으로 설득했습니다.
+                                </p>
+                            </div>
+                            <!-- Result -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-amber-500 uppercase tracking-wider mb-2">R. Result (정량적 성과)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    수치 타당성과 시장 검증 부문에서 매우 높은 평점을 얻으며 **창업경진대회 최종 '최우수상' 수상**이라는 뛰어난 결실을 기록했습니다. "아이디어에 그치지 않고, 지극히 현실적이고 검증 가능한 실전 비즈니스 모델"이라는 호평을 이끌어냈습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Item 3: Sangsang Friends -->
+                <div id="tab-sangsang" class="tab-content hidden space-y-8">
+                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-navy-800 pb-6">
+                        <div>
+                            <span class="text-xs font-bold text-indigo-500 bg-indigo-500/10 px-3 py-1.5 rounded-full">대외활동 기획 & 마케팅</span>
+                            <h3 class="text-2xl font-bold text-slate-800 dark:text-white mt-3">KT&G 상상프렌즈 대학생 참여형 캠페인 기획</h3>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs text-slate-400">기간: 2023년 02월 - 2023년 08월</p>
+                            <p class="text-sm font-semibold text-indigo-500 mt-1">성과: 타겟 인게이지먼트 전년비 180% 성장</p>
+                        </div>
+                    </div>
+
+                    <!-- STAR Methodology Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <!-- Situation -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-indigo-500 uppercase tracking-wider mb-2">S. Situation (배경)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    코로나 이후 파편화된 대학생 유저 간의 교류와 인지도를 효과적으로 넓히기 위해, 일방향 마케팅이 아닌 소비자들이 적극적으로 개입하여 바이럴하는 온-오프라인 대규모 캠페인의 실행이 요구되었습니다.
+                                </p>
+                            </div>
+                            <!-- Task -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-indigo-500 uppercase tracking-wider mb-2">T. Task (목표 및 해결 과제)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    참여 대학생 수 전년 동기 대비 150% 이상, 참여자 만족도 리커트 척도 평점 4.5/5.0 돌파를 정량적 기획 목표로 설정하여 프로젝트에 뛰어들었습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Action -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-indigo-500 uppercase tracking-wider mb-2">A. Action (수행 과정)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    기존 활동 데이터를 바탕으로 주 타겟인 대학생층의 핵심 트렌드 코드(재미, 소통, 참여)를 도출하고, 이에 기반한 오감 체감형 콘텐츠 부스와 SNS 바이럴 이벤트를 융합적으로 기획하여 행사를 직접 총괄 운영했습니다.
+                                </p>
+                            </div>
+                            <!-- Result -->
+                            <div class="p-5 bg-slate-50 dark:bg-navy-950/40 rounded-2xl border border-slate-100 dark:border-navy-800">
+                                <h4 class="text-sm font-bold text-indigo-500 uppercase tracking-wider mb-2">R. Result (정량적 성과)</h4>
+                                <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                    **체감 만족도 4.8점 및 총 참여 인원 전년 대비 180% 급증**이라는 역대급 인게이지먼트 성장 곡선을 창출했습니다. 단순히 행사를 열고 운영하는 데서 끝나는 것이 아니라, 고객 피드백 루프를 수집하고 데이터로 검증함으로써 차세대 퍼포먼스 마케터로서의 역량을 빛냈습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 5: SKILLS & EDUCATION (DUMAL ACADEMIC & TECHNICAL CODES) -->
+    <section id="skills" class="py-24 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold text-softblue-500 uppercase tracking-widest">EDUCATION & TECHNICAL STACK</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white mt-3">학업 전문성 및 보유 역량</p>
+                <div class="w-16 h-1 bg-softblue-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto">
+                
+                <!-- Left Hand Academic Profile -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="p-8 bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-800 shadow-md">
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-6 border-b border-slate-100 dark:border-navy-800 pb-3">
+                            <i class="fa-solid fa-graduation-cap mr-2 text-softblue-500"></i>학력 사항
+                        </h3>
+                        
+                        <div class="relative pl-6 border-l-2 border-slate-200 dark:border-navy-800 space-y-8">
+                            <!-- Education Item 1 -->
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-softblue-500 border-4 border-white dark:border-navy-900"></span>
+                                <h4 class="font-extrabold text-slate-800 dark:text-white text-base">한양대학교 ERICA</h4>
+                                <p class="text-slate-500 text-xs mt-0.5">2021년 입학 - 재학 중</p>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
+                                    <strong>경제학부</strong> (주전공)<br>
+                                    <span class="text-xs text-softblue-500">미시경제학, 거시경제학, 계량경제학 수료</span>
+                                </p>
+                            </div>
+                            
+                            <!-- Education Item 2 -->
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-indigo-500 border-4 border-white dark:border-navy-900"></span>
+                                <h4 class="font-extrabold text-slate-800 dark:text-white text-base">비즈니스애널리틱스 융합전공</h4>
+                                <p class="text-slate-500 text-xs mt-0.5">융합전공 (다중전공)</p>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2">
+                                    경영 통계, 비즈니스 기획 모델링, Python 및 데이터 구조, SQL 기반 데이터베이스 등 학제적 융합 학문을 이수하며 데이터 문해력을 체득했습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hand Technical Stacks Visual Bars -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="p-8 bg-white dark:bg-navy-900 rounded-3xl border border-slate-200 dark:border-navy-800 shadow-md">
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-6 border-b border-slate-100 dark:border-navy-800 pb-3">
+                            <i class="fa-solid fa-screwdriver-wrench mr-2 text-softblue-500"></i>직무 및 분석 툴 보유 숙련도
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Skill Tool 1 -->
+                            <div>
+                                <div class="flex justify-between text-sm font-semibold mb-2">
+                                    <span class="text-slate-700 dark:text-slate-300">비즈니스 기획 및 전략 수립 (BM/Proposal)</span>
+                                    <span class="text-softblue-500">95%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-100 dark:bg-navy-850 rounded-full overflow-hidden">
+                                    <div class="h-full bg-softblue-500 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Skill Tool 2 -->
+                            <div>
+                                <div class="flex justify-between text-sm font-semibold mb-2">
+                                    <span class="text-slate-700 dark:text-slate-300">데이터 기획 및 분석 (Python / SQL)</span>
+                                    <span class="text-softblue-500">85%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-100 dark:bg-navy-850 rounded-full overflow-hidden">
+                                    <div class="h-full bg-softblue-500 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill Tool 3 -->
+                            <div>
+                                <div class="flex justify-between text-sm font-semibold mb-2">
+                                    <span class="text-slate-700 dark:text-slate-300">오피스 활용 및 데이터 가시화 (PPT, Excel, Tableau)</span>
+                                    <span class="text-softblue-500">90%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-100 dark:bg-navy-850 rounded-full overflow-hidden">
+                                    <div class="h-full bg-softblue-500 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Skill Tool 4 -->
+                            <div>
+                                <div class="flex justify-between text-sm font-semibold mb-2">
+                                    <span class="text-slate-700 dark:text-slate-300">협업 및 커뮤니케이션 툴 (Slack, Notion, Miro)</span>
+                                    <span class="text-softblue-500">92%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-100 dark:bg-navy-850 rounded-full overflow-hidden">
+                                    <div class="h-full bg-softblue-500 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT (FINAL INTERACTIVE ACTION BOX) -->
+    <section id="contact" class="py-24 px-6 bg-slate-50 dark:bg-navy-950/40 relative z-10 border-t border-slate-200 dark:border-navy-900">
+        <div class="max-w-4xl mx-auto text-center">
+            
+            <div class="max-w-3xl mx-auto mb-12">
+                <h2 class="text-sm font-bold text-softblue-500 uppercase tracking-widest">LET'S COLLABORATE</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-white mt-3">언제든 연락을 환영합니다!</p>
+                <p class="text-slate-500 dark:text-slate-400 mt-4 leading-relaxed">
+                    창의적인 생각과 냉철한 비즈니스 데이터 검증 능력을 조화롭게 결합해 비즈니스 성공을 이끌어갈 준비가 되어 있습니다. 준서 님을 영입하여 가치 있는 미래를 만드실 채용담당자 분들의 소중한 연락을 편히 기다립니다.
+                </p>
+            </div>
+
+            <!-- Interactive Personal Profile Contact Info Box -->
+            <div class="bg-white dark:bg-navy-900 rounded-3xl p-8 border border-slate-200 dark:border-navy-800 shadow-xl grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                
+                <!-- Detailed Contact Text Links -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-softblue-500/10 text-softblue-600 dark:text-softblue-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-semibold">이메일 주소</p>
+                            <a href="mailto:rkdwnstj1216@gmail.com" class="text-slate-800 dark:text-slate-200 font-bold hover:text-softblue-500 transition-colors">rkdwnstj1216@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-semibold">연락처</p>
+                            <p class="text-slate-800 dark:text-slate-200 font-bold">010-3136-1216 (가상연락처)</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-cake-candles"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-semibold">생년월일</p>
+                            <p class="text-slate-800 dark:text-slate-200 font-bold">2002년 12월 16일</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Instant Actions Panel -->
+                <div class="flex flex-col justify-center space-y-4 bg-slate-50 dark:bg-navy-950/40 p-6 rounded-2xl border border-slate-100 dark:border-navy-800/60">
+                    <button onclick="copyEmailToClipboard()" class="w-full inline-flex items-center justify-center space-x-2 bg-softblue-500 hover:bg-softblue-600 text-white font-bold py-3 px-6 rounded-xl shadow-md transition-all active:scale-[0.98]">
+                        <i class="fa-solid fa-copy"></i>
+                        <span>이메일 주소 복사하기</span>
+                    </button>
+                    
+                    <a href="https://github.com/rkdwnstj0326" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center space-x-2 bg-slate-800 hover:bg-slate-700 dark:bg-navy-800 dark:hover:bg-navy-750 text-white font-bold py-3 px-6 rounded-xl transition-all border border-slate-700/50">
+                        <i class="fa-brands fa-github text-lg"></i>
+                        <span>깃허브 저장소 구경하기</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER LICENSE BRANDING -->
+    <footer class="bg-white dark:bg-navy-950 text-slate-400 dark:text-slate-500 py-12 text-center border-t border-slate-200 dark:border-navy-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-6 space-y-4">
+            <p class="text-sm font-semibold text-slate-600 dark:text-slate-400">
+                &copy; 2026 강준서. All Rights Reserved.
+            </p>
+            <p class="text-xs">
+                이 포트폴리오 사이트는 데이터 시각 분석과 고도의 비즈니스 기획 역량을 어필하기 위해 Tailwind CSS 와 정교하게 튜닝된 바닐라 JS로 자체 코딩 및 제작되었습니다.
+            </p>
+        </div>
+    </footer>
+
+    <!-- TOAST ALERTS DIALOGS (To notify copy action) -->
+    <div id="toast-notif" class="fixed bottom-8 right-8 z-50 transform translate-y-20 opacity-0 bg-slate-900 text-white px-6 py-3.5 rounded-2xl shadow-2xl flex items-center space-x-3 transition-all duration-300 border border-slate-700">
+        <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <span class="text-sm font-semibold">이메일 주소가 성공적으로 복사되었습니다!</span>
+    </div>
+
+    <!-- INTERACTIVE JAVASCRIPT BEHAVIORS (Pure Vanilla - NO Backticks!) -->
+    <script>
+        // 1. DYNAMIC SCRREOL PROGRESS BAR UPDATING
+        window.addEventListener('scroll', function() {
+            var scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (scrollHeight > 0) {
+                var progress = (window.scrollY / scrollHeight) * 100;
+                document.getElementById('scroll-progress').style.width = progress + '%';
+            }
         });
 
-         Toggle mobile hamburger menu drawer
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileDrawer = document.getElementById('mobile-drawer');
+        // 2. PARALLAX FLOATING BLOCKS BASED ON SCROLL (No backticks used)
+        window.addEventListener('scroll', function() {
+            var scrollVal = window.scrollY;
+            var b1 = document.getElementById('parallax-blob-1');
+            var b2 = document.getElementById('parallax-blob-2');
+            var b3 = document.getElementById('parallax-blob-3');
+            
+            if (b1) b1.style.transform = 'translateY(' + (scrollVal * 0.15) + 'px)';
+            if (b2) b2.style.transform = 'translateY(' + (scrollVal * -0.1) + 'px)';
+            if (b3) b3.style.transform = 'translateY(' + (scrollVal * 0.08) + 'px)';
+        });
 
-        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-
-        function toggleMobileMenu() {
-            mobileDrawer.classList.toggle('hidden');
-            mobileDrawer.classList.toggle('flex');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (mobileDrawer.classList.contains('hidden')) {
-                icon.className = 'fa-solid fa-bars-staggered';
+        // 3. DARK MODE & LIGHT MODE REALTIME SWITCHER TOGGLE
+        var themeToggleBtn = document.getElementById('theme-toggle');
+        var themeIcon = document.getElementById('theme-icon');
+        
+        themeToggleBtn.addEventListener('click', function() {
+            var htmlClass = document.documentElement.classList;
+            if (htmlClass.contains('dark')) {
+                htmlClass.remove('dark');
+                htmlClass.add('light');
+                themeIcon.className = 'fa-solid fa-moon text-indigo-600';
+                localStorage.setItem('junseo-portfolio-theme', 'light');
             } else {
-                icon.className = 'fa-solid fa-xmark';
+                htmlClass.remove('light');
+                htmlClass.add('dark');
+                themeIcon.className = 'fa-solid fa-sun text-amber-500';
+                localStorage.setItem('junseo-portfolio-theme', 'dark');
+            }
+        });
+
+        // Restore theme configuration from local cache memory
+        window.addEventListener('DOMContentLoaded', function() {
+            var cachedTheme = localStorage.getItem('junseo-portfolio-theme');
+            var htmlClass = document.documentElement.classList;
+            if (cachedTheme === 'light') {
+                htmlClass.remove('dark');
+                htmlClass.add('light');
+                themeIcon.className = 'fa-solid fa-moon text-indigo-600';
+            } else {
+                htmlClass.remove('light');
+                htmlClass.add('dark');
+                themeIcon.className = 'fa-solid fa-sun text-amber-500';
+            }
+            
+            // Start simple counter animation triggers
+            animateStatCounter('stat-count-1', 1, 18, 1200);
+        });
+
+        // 4. ANIMATING STAT COUNTER NUMBERS
+        function animateStatCounter(elemId, start, end, duration) {
+            var obj = document.getElementById(elemId);
+            if (!obj) return;
+            var range = end - start;
+            var current = start;
+            var increment = end > start ? 1 : -1;
+            var stepTime = Math.abs(Math.floor(duration / range));
+            var timer = setInterval(function() {
+                current += increment;
+                obj.innerText = current;
+                if (current === end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        // 5. INTERACTIVE SELECTED PROJECTS TABS SYSTEM SWITCHING (Safe from template literal bugs)
+        function switchTab(targetId) {
+            // Hide all tab contents
+            var contents = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.add('hidden');
+                contents[i].classList.remove('block');
+            }
+            
+            // Reveal desired target tab content
+            var activePane = document.getElementById(targetId);
+            if (activePane) {
+                activePane.classList.remove('hidden');
+                activePane.classList.add('block');
+            }
+
+            // Clean active CSS states from all controller buttons
+            var buttons = document.getElementsByClassName('tab-btn');
+            for (var j = 0; j < buttons.length; j++) {
+                buttons[j].className = 'tab-btn py-3 px-6 rounded-2xl font-bold text-sm transition-all focus:outline-none w-full sm:w-auto text-center border bg-white dark:bg-navy-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-navy-800 hover:border-softblue-500';
+            }
+
+            // Assign active visual aesthetic styles to active buttons
+            var activeBtnMap = {
+                'tab-orientation': 'btn-tab-orientation',
+                'tab-startup': 'btn-tab-startup',
+                'tab-sangsang': 'btn-tab-sangsang'
+            };
+            
+            var targetBtnId = activeBtnMap[targetId];
+            var activeBtn = document.getElementById(targetBtnId);
+            if (activeBtn) {
+                activeBtn.className = 'tab-btn py-3 px-6 rounded-2xl font-bold text-sm transition-all focus:outline-none w-full sm:w-auto text-center border bg-softblue-500 text-white border-softblue-500 shadow-md';
             }
         }
 
-         Copy Email to clipboard with fallback and custom toast feedback
-        function copyEmail() {
-            const emailText = document.getElementById('email-address').textContent;
-            const tempInput = document.createElement('input');
-            tempInput.value = emailText;
-            document.body.appendChild(tempInput);
-            tempInput.select();
+        // 6. TOGGLING MOBILE DRAWER MENU OVERLAYS
+        function toggleMobileMenu() {
+            var drawer = document.getElementById('mobile-menu');
+            if (drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.add('hidden');
+            }
+        }
+        var mBtn = document.getElementById('mobile-menu-btn');
+        if (mBtn) {
+            mBtn.addEventListener('click', toggleMobileMenu);
+        }
+
+        // 7. SECURE CLIPBOARD COPY EMULATOR (Safe standard command without browser iframe blockades)
+        function copyEmailToClipboard() {
+            var emailAddress = 'rkdwnstj1216@gmail.com';
+            var dummyTextArea = document.createElement('textarea');
+            dummyTextArea.value = emailAddress;
+            document.body.appendChild(dummyTextArea);
+            dummyTextArea.select();
             
             try {
-                document.execCommand('copy');
-                showToast(이메일 주소가 클립보드에 복사되었습니다!);
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    showSuccessToast();
+                }
             } catch (err) {
-                console.error(이메일 주소 복사 실패, err);
-                showToast(복사에 실패했습니다. 직접 복사해 주세요.);
+                console.error('Copy function failed:', err);
             }
             
-            document.body.removeChild(tempInput);
+            document.body.removeChild(dummyTextArea);
         }
 
-         Show Custom Toast Notification message
-        function showToast(message) {
-            const toast = document.getElementById('toast-message');
-            const toastText = document.getElementById('toast-text');
-            
-            toastText.textContent = message;
-            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-            toast.classList.add('opacity-100', 'translate-y-0');
-            
-            setTimeout(() = {
-                toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                toast.classList.remove('opacity-100', 'translate-y-0');
-            }, 2500);
-        }
-
-         Project STAR Method Tab Switch system
-        function switchProjectTab(projectId) {
-            const contents = document.querySelectorAll('.project-tab-content');
-            contents.forEach(content = {
-                content.classList.add('hidden');
-            });
-
-            document.getElementById(projectId).classList.remove('hidden');
-
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn = {
-                btn.className = tab-btn px-4 py-3 text-sm mdtext-base font-bold text-slate-400 darktext-navy-400 border-b-2 border-transparent hovertext-slate-800 darkhovertext-navy-100 hoverborder-slate-300 darkhoverborder-navy-700 transition-all duration-300 flex items-center gap-2 whitespace-nowrap;
-            });
-
-            const activeBtn = document.getElementById(`btn-${projectId}`);
-            activeBtn.className = tab-btn px-4 py-3 text-sm mdtext-base font-bold text-softBlue-600 darktext-softBlue-400 border-b-2 border-softBlue-500 darkborder-softBlue-400 transition-all duration-300 flex items-center gap-2 whitespace-nowrap;
-        }
-
-         Mock download resume trigger with toast feedback
-        function downloadResume() {
-            showToast(준서 님의 이력서(PDF) 다운로드를 시작합니다.);
-            setTimeout(() = {
-                showToast(이력서 다운로드가 성공적으로 완료되었습니다!);
-            }, 1000);
-        }
-
-         Add sticky navigation shadow effect on scroll
-        window.addEventListener('scroll', () = {
-            const header = document.querySelector('header');
-            if (window.scrollY  30) {
-                header.classList.add('px-4');
-            } else {
-                header.classList.remove('px-4');
+        // Simple toast trigger animation
+        function showSuccessToast() {
+            var toast = document.getElementById('toast-notif');
+            if (toast) {
+                toast.classList.remove('translate-y-20', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+                
+                setTimeout(function() {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                }, 3000);
             }
-        });
-    script
-body
-html
+        }
+    </script>
+</body>
+</html>
